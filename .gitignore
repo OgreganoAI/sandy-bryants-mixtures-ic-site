@@ -5,3 +5,4 @@ dist/
 *.d.ts
 !.eslintrc.js
 !.prettierrc.js
+labels_source/

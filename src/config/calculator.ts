@@ -1,7 +1,7 @@
 export type CalculatorVariantId =
   | 'sheep-and-cattle-6.5-cu'
   | 'cattle-only-8.5-cu'
-  | 'hard-country-cattle-travel-and-yard-9.5-cu'
+  | 'hard-country-cattle-travel-yard-9.5-cu'
 
 export type AnimalType = 'cattle' | 'sheep'
 
@@ -44,7 +44,7 @@ export const calculatorProduct = {
       cattleOnly: true,
     },
     {
-      id: 'hard-country-cattle-travel-and-yard-9.5-cu',
+      id: 'hard-country-cattle-travel-yard-9.5-cu',
       label: 'Hard Country Cattle, Travel & Yard – 9.5 Cu',
       copperMgL: 9.5,
       cattleOnly: true,

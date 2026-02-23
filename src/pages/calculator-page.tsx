@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AlertCircle } from 'lucide-react'
+import { useLocation } from '@tanstack/react-router'
 
 import {
   calculatorProduct,
@@ -12,6 +13,7 @@ import {
 } from '@/config/calculator'
 
 type MethodId = 'feed-ration' | 'tank-water' | 'inline-pump' | 'floater'
+const DEFAULT_VARIANT_ID: CalculatorVariantId = 'sheep-and-cattle-6.5-cu'
 
 function getCattleRation(weightKg: number): { mlPerAnimal: number; defaultIntervalWeeks: number } | null {
   if (!Number.isFinite(weightKg)) return null
@@ -20,6 +22,8 @@ function getCattleRation(weightKg: number): { mlPerAnimal: number; defaultInterv
 }
 
 export function CalculatorPage() {
+  const location = useLocation()
+
   useEffect(() => {
     document.title = 'Livestock Ration Calculator | Sandy Bryant’s Mixtures®'
 
@@ -37,7 +41,7 @@ export function CalculatorPage() {
     }
   }, [])
 
-  const [selectedVariant, setSelectedVariant] = useState<CalculatorVariantId>('sheep-and-cattle-6.5-cu')
+  const [selectedVariant, setSelectedVariant] = useState<CalculatorVariantId>(DEFAULT_VARIANT_ID)
   const [animalType, setAnimalType] = useState<AnimalType>('cattle')
   const [method, setMethod] = useState<MethodId>('feed-ration')
   const [groupName, setGroupName] = useState('')
@@ -54,11 +58,25 @@ export function CalculatorPage() {
   const isSheep = animalType === 'sheep'
   const herdLabel = isSheep ? 'flock' : 'herd'
   const currentVariant = calculatorProduct.variants.find((variant) => variant.id === selectedVariant)
+  const variantAccentClass =
+    selectedVariant === 'sheep-and-cattle-6.5-cu'
+      ? 'accent-blue'
+      : selectedVariant === 'cattle-only-8.5-cu'
+        ? 'accent-green'
+        : 'accent-maroon'
 
   const sheepVariantWarning =
     isSheep &&
     (selectedVariant === 'cattle-only-8.5-cu' ||
-      selectedVariant === 'hard-country-cattle-travel-and-yard-9.5-cu')
+      selectedVariant === 'hard-country-cattle-travel-yard-9.5-cu')
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.searchStr)
+    const paramVariant = params.get('variant')
+    const hasVariant = calculatorProduct.variants.some((variant) => variant.id === paramVariant)
+    const nextVariant = hasVariant ? (paramVariant as CalculatorVariantId) : DEFAULT_VARIANT_ID
+    setSelectedVariant(nextVariant)
+  }, [location.searchStr])
 
   const handleAnimalTypeChange = (value: string) => {
     const next = value as AnimalType
@@ -196,7 +214,7 @@ export function CalculatorPage() {
           <label className="space-y-2 text-sm">
             <span className="font-medium">Variant</span>
             <select
-              className="w-full rounded-md border px-3 py-2 bg-white"
+              className={`w-full rounded-md border px-3 py-2 bg-white ${variantAccentClass} accent-focus`}
               value={selectedVariant}
               onChange={(event) => setSelectedVariant(event.target.value as CalculatorVariantId)}
             >
@@ -211,7 +229,7 @@ export function CalculatorPage() {
           <label className="space-y-2 text-sm">
             <span className="font-medium">Animal type</span>
             <select
-              className="w-full rounded-md border px-3 py-2 bg-white"
+              className={`w-full rounded-md border px-3 py-2 bg-white ${variantAccentClass} accent-focus`}
               value={animalType}
               onChange={(event) => handleAnimalTypeChange(event.target.value)}
             >
@@ -222,12 +240,14 @@ export function CalculatorPage() {
         </div>
 
         {currentVariant && (
-          <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm space-y-1">
-            <p className="font-semibold">{currentVariant.label}</p>
+          <div className={`rounded-md border bg-amber-50 p-3 text-sm space-y-1 ${variantAccentClass} accent-card`}>
+            <p className="font-semibold" style={{ color: 'var(--accent-color)' }}>
+              {currentVariant.label}
+            </p>
             <p>
-              {currentVariant.id === 'sheep-and-cattle-6.5-cu' && 'Suitable for cattle and sheep. 6.5 mg/L copper.'}
+              {currentVariant.id === 'sheep-and-cattle-6.5-cu' && 'Suitable for cattle and sheep (suitable for all ruminants). 6.5 mg/L copper.'}
               {currentVariant.id === 'cattle-only-8.5-cu' && 'Suitable for cattle only. 8.5 mg/L copper.'}
-              {currentVariant.id === 'hard-country-cattle-travel-and-yard-9.5-cu' &&
+              {currentVariant.id === 'hard-country-cattle-travel-yard-9.5-cu' &&
                 'Suitable for cattle only. 9.5 mg/L copper.'}
             </p>
           </div>
@@ -465,9 +485,9 @@ export function CalculatorPage() {
 
         {method === 'floater' && (
           <div className="space-y-3">
-            <div className="flex items-center justify-between border-b py-2 text-sm">
-              <span>Total volume required per ration event</span>
-              <strong>{floaterGuidance.amountL} L</strong>
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Total supplement required per ration event</span>
+              <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.amountL} L</strong>
             </div>
             <p className="text-sm text-muted-foreground whitespace-pre-line">{floaterGuidance.text}</p>
           </div>
