@@ -34,7 +34,9 @@ export function HomePage() {
           alt="Sandy Bryant’s Mixtures logo"
           className="mx-auto w-full max-w-[260px] sm:max-w-[320px]"
         />
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#2b1a12]">Sandy Bryant’s Mixtures®</h1>
+        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#2b1a12]">
+          Sandy Bryant’s Mixtures®
+        </h1>
 
         <p className="text-xl text-[#2b1a12]/80 max-w-3xl mx-auto">
           Practical livestock mineral supplementation, grounded in heritage and designed for Australian conditions.
@@ -58,56 +60,89 @@ export function HomePage() {
       {/* Product Overview */}
       <section className="grid gap-5 md:grid-cols-3">
         {productCards.map((card) => (
-          <article key={card.title} className={`label-card ${card.labelClass} rounded-xl border p-6 space-y-3 min-h-[220px]`}>
+  <article
+    key={card.title}
+    className={`label-card ${card.labelClass} rounded-xl border p-6 space-y-3 min-h-[220px] transition hover:shadow-md`}
+  >
             <p className="label-kicker text-sm font-semibold">{card.variantText}</p>
             <h3 className="text-xl font-semibold text-[#2b1a12]">{card.title}</h3>
-            <p className="text-[#2b1a12]/75">{card.text}</p>
+            <p className="max-w-[320px] text-[#2b1a12]/75">
+  {card.text}
+</p>
+
           </article>
         ))}
       </section>
 
-      {/* Calculator CTA */}
-      <section className="text-center rounded-xl border bg-white p-8 space-y-4">
-        <h2 className="text-2xl font-semibold text-[#2b1a12]">Plan your ration in minutes</h2>
-        <p className="text-[#2b1a12]/75 max-w-3xl mx-auto">
-          Use the calculator to estimate supplement volumes for your herd, based on animal numbers, liveweight, and
-          your chosen variant.
-        </p>
-        <Link
-          to="/calculator"
-          className="inline-flex rounded-md bg-primary px-6 py-3 text-primary-foreground font-medium hover:opacity-90 transition"
-        >
-          Use the Calculator
-        </Link>
-      </section>
+      {/* Next steps */}
+      <section className="rounded-2xl border bg-white/70 p-6 sm:p-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-[#2b1a12]">Next steps</h2>
+          <p className="mt-3 text-lg text-[#2b1a12]/75 max-w-3xl mx-auto">
+            A simple pathway from heritage, to practical planning, to purchase through your local store network.
+          </p>
+        </div>
 
-      {/* Partner Strip */}
-      <section className="rounded-xl border bg-muted/35 px-6 py-7 space-y-5">
-        <p className="text-center text-sm font-semibold tracking-wide uppercase text-[#2b1a12]/70">
-          Available exclusively through
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          <article className="rounded-lg border bg-white p-5 flex flex-col items-center gap-4 text-center">
-            <img src={nutrienLogo} alt="Nutrien Ag Solutions logo" className="h-14 w-auto object-contain" />
-            <a
-              href="https://www.nutrienagsolutions.com.au/find-a-branch"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex rounded-md border px-4 py-2 text-sm font-medium hover:bg-muted transition"
-            >
-              Find a Nutrien Branch
-            </a>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {/* Our Story */}
+          <article className="rounded-xl border bg-white p-6 text-center">
+            <h3 className="text-xl font-semibold text-[#2b1a12]">Our Story</h3>
+            <p className="mt-2 text-left text-[#2b1a12]/75">
+              Learn how Sandy Bryant’s Mixtures® evolved through generations of practical farming experience.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <Link
+                to="/our-story"
+                className="inline-flex min-w-[180px] justify-center rounded-xl border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-[#2b1a12] shadow-sm hover:shadow transition"
+              >
+                Read the story
+              </Link>
+            </div>
           </article>
-          <article className="rounded-lg border bg-white p-5 flex flex-col items-center gap-4 text-center">
-            <img src={crtLogo} alt="CRT logo" className="h-14 w-auto object-contain" />
-            <a
-              href="https://crt.com.au/stores/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex rounded-md border px-4 py-2 text-sm font-medium hover:bg-muted transition"
-            >
-              Find a CRT Store
-            </a>
+
+          {/* Livestock Ration Calculator (elevated) */}
+          <article className="rounded-xl border bg-white p-6 text-center ring-1 ring-black/5 shadow-sm md:-translate-y-2">
+            <h3 className="text-xl font-semibold text-[#2b1a12]">Livestock Ration Calculator</h3>
+            <p className="mt-2 text-left text-[#2b1a12]/75">
+              Estimate supplement volumes using animal numbers, liveweight, and your chosen variant.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <Link
+                to="/calculator"
+                className="inline-flex min-w-[180px] justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition shadow-sm"
+              >
+                Use the calculator
+              </Link>
+            </div>
+          </article>
+
+          {/* Where to Buy */}
+          <article className="rounded-xl border bg-white p-6 text-center">
+            <h3 className="text-xl font-semibold text-[#2b1a12]">Where to Buy</h3>
+            <p className="mt-2 text-left text-[#2b1a12]/75">
+              Supplied exclusively through Nutrien Ag Solutions® and CRT. Find your nearest store.
+            </p>
+
+            <div className="mt-6">
+              <div className="flex justify-center">
+                <Link
+                  to="/where-to-buy"
+                  className="inline-flex min-w-[180px] justify-center rounded-xl border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-[#2b1a12] shadow-sm hover:shadow transition"
+                >
+                  Store options
+                </Link>
+              </div>
+
+              <div className="flex items-center justify-center gap-4 pt-4">
+                <img
+                  src={nutrienLogo}
+                  alt="Nutrien Ag Solutions®"
+                  className="h-8 w-auto object-contain"
+                  loading="lazy"
+                />
+                <img src={crtLogo} alt="CRT" className="h-8 w-auto object-contain" loading="lazy" />
+              </div>
+            </div>
           </article>
         </div>
       </section>
