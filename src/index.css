@@ -14,6 +14,9 @@
   --sbm-blue: #4b86c7;
   --sbm-green: #2f7d46;
   --sbm-maroon: #7b1e2b;
+  --sbm-label-blue: var(--sbm-blue);
+  --sbm-label-green: #3a8d4f;
+  --sbm-label-maroon: #7b1e2b;
 }
 
 @layer base {
@@ -63,5 +66,29 @@
     outline: none;
     box-shadow: 0 0 0 2px var(--accent-color);
     border-color: var(--accent-color);
+  }
+
+  .label-blue {
+    --label-color: var(--sbm-label-blue);
+    --label-tint: color-mix(in srgb, var(--sbm-label-blue) 10%, white);
+  }
+
+  .label-green {
+    --label-color: var(--sbm-label-green);
+    --label-tint: color-mix(in srgb, var(--sbm-label-green) 10%, white);
+  }
+
+  .label-maroon {
+    --label-color: var(--sbm-label-maroon);
+    --label-tint: color-mix(in srgb, var(--sbm-label-maroon) 10%, white);
+  }
+
+  .label-card {
+    border-top: 4px solid var(--label-color);
+    background: var(--label-tint);
+  }
+
+  .label-kicker {
+    color: var(--label-color);
   }
 }
