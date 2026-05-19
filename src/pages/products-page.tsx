@@ -1,10 +1,14 @@
 import { Link } from '@tanstack/react-router'
+import sheepCattleLabel from '@/assets/labels/label-sheep-cattle-light-blue.png'
+import cattleOnlyLabel from '@/assets/labels/label-cattle-only-green.png'
+import hardCountryLabel from '@/assets/labels/label-hard-country-cattle-maroon.png'
 
 const products = [
   {
     title: 'Sheep & Cattle',
     variantText: '6.5 copper variant',
     labelClass: 'label-blue',
+    labelImage: sheepCattleLabel,
     summary: 'Balanced copper formulation suitable for cattle and sheep.',
     details: {
       designedFor:
@@ -23,6 +27,7 @@ const products = [
     title: 'Cattle Only',
     variantText: '8.5 copper variant',
     labelClass: 'label-green',
+    labelImage: cattleOnlyLabel,
     summary: 'Higher copper formulation designed for cattle-only systems.',
     details: {
       designedFor:
@@ -36,9 +41,9 @@ const products = [
     },
   },
   {
-    title: 'Hard Country Cattle, Travel & Yard',
+  title: 'Hard Country Cattle, Travel & Yard',
     variantText: '9.5 copper variant',
-    labelClass: 'label-maroon',
+    labelClass: 'label-maroon',labelImage: hardCountryLabel,
     summary:
       'Elevated copper formulation suited to transport, yarding, and hard-country cattle systems.',
     details: {
@@ -79,13 +84,28 @@ export function ProductsPage() {
           >
             <div className="space-y-2">
               <p className="label-kicker text-sm font-semibold">{p.variantText}</p>
-              <h2 className="text-xl font-semibold text-[#2b1a12]">{p.title}</h2>
+
+              <img
+               src={p.labelImage}
+               alt={`${p.title} label`}
+               className="mt-4 w-full rounded-lg border border-black/10 bg-white shadow-sm"
+/>
+
+              <h2 className="text-xl font-semibold text-[#2b1a12]">
+  {p.title}
+  {p.labelClass === 'label-maroon' && (
+    <>
+      {' '}
+      <span className="italic">with FulviPhos</span>
+    </>
+  )}
+</h2>
               <p className="max-w-[320px] text-[#2b1a12]/75">{p.summary}</p>
             </div>
 
             {/* Structured detail, collapsible */}
-            <details className="rounded-lg border border-black/10 bg-white/50 p-4">
-              <summary className="cursor-pointer select-none text-sm font-semibold text-[#2b1a12] hover:opacity-80 transition">
+            <details className="rounded-xl border border-black/10 bg-white/70 p-4 shadow-sm transition">
+              <summary className="cursor-pointer select-none text-sm font-semibold text-[#2b1a12] transition hover:text-black hover:opacity-90">
                 View formulation notes
               </summary>
 
@@ -104,7 +124,13 @@ export function ProductsPage() {
                 </p>
                 <p>
                   <span className="font-semibold text-[#2b1a12]">Delivery compatibility: </span>
-                  {p.details.deliveryCompatibility}
+{p.details.deliveryCompatibility}{' '}
+<Link
+  to="/floater-doser"
+  className="font-semibold underline underline-offset-4 hover:opacity-80"
+>
+  Learn more about the Floater~Doser®
+</Link>
                 </p>
               </div>
             </details>

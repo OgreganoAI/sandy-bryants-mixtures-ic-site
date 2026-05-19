@@ -15,13 +15,13 @@ const productCards = [
     text: 'Higher copper formulation designed for cattle-only systems.',
     variantText: '8.5 copper variant',
     labelClass: 'label-green',
-  },
+     },
   {
     title: 'Hard Country Cattle, Travel & Yard',
     text: 'Elevated copper formulation suited to transport, yarding, and hard-country cattle.',
     variantText: '9.5 copper variant',
     labelClass: 'label-maroon',
-  },
+     },
 ]
 
 export function HomePage() {
@@ -43,8 +43,23 @@ export function HomePage() {
         </p>
 
         <p className="text-lg text-[#2b1a12]/75 max-w-3xl mx-auto">
-          Explore the product range, plan your ration using the calculator, and locate your nearest Nutrien Ag
-          Solutions or CRT store.
+          Explore the product range, plan your ration using the calculator, and locate your nearest <br /> <a
+  href="https://www.nutrienagsolutions.com.au/find-a-branch?"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="underline decoration-black/20 underline-offset-4 hover:decoration-black"
+>
+  Nutrien Ag Solutions
+</a>{' '}
+or{' '}
+<a
+  href="https://crt.com.au/stores/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="underline decoration-black/20 underline-offset-4 hover:decoration-black"
+>
+  CRT store
+</a>.
         </p>
 
         <div className="flex justify-center pt-2">
@@ -57,29 +72,57 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Product Overview */}
-      <section className="grid gap-5 md:grid-cols-3">
-        {productCards.map((card) => (
-  <article
-    key={card.title}
-    className={`label-card ${card.labelClass} rounded-xl border p-6 space-y-3 min-h-[220px] transition hover:shadow-md`}
-  >
-            <p className="label-kicker text-sm font-semibold">{card.variantText}</p>
-            <h3 className="text-xl font-semibold text-[#2b1a12]">{card.title}</h3>
-            <p className="max-w-[320px] text-[#2b1a12]/75">
-  {card.text}
-</p>
+      
+      {/* Product overview gateway */}
+<section className="rounded-2xl border border-black/10 bg-white/50 p-6 sm:p-8">
+  <div className="text-center">
+    <h2 className="text-3xl font-semibold text-[#2b1a12]">The range at a glance</h2>
+    <p className="mt-3 mx-auto max-w-2xl text-lg text-[#2b1a12]/75">
+      Three related formulations built around a practical livestock supplementation foundation.
+      The Products page provides the full formulation notes and usage detail.
+    </p>
+  </div>
 
-          </article>
-        ))}
-      </section>
+ <div className="mt-8 grid gap-4 md:grid-cols-3">
+  {productCards.map((card) => (
+    <Link
+      key={card.title}
+      to="/products"
+      className="block"
+    >
+      <article
+        className={`rounded-xl border border-black/10 border-t-4 p-5 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-black/20 ${
+  card.labelClass === 'label-blue'
+    ? 'bg-[rgba(75,134,199,0.10)] border-t-[#4b86c7]'
+    : card.labelClass === 'label-green'
+      ? 'bg-[rgba(58,141,79,0.10)] border-t-[#3a8d4f]'
+      : 'bg-[rgba(123,30,43,0.10)] border-t-[#7b1e2b]'
+}`}
+      >
+        <p className="text-sm font-semibold text-[#2b1a12]/55">
+          {card.variantText}
+        </p>
+
+        <h3 className="mt-2 text-xl font-semibold text-[#2b1a12]">
+          {card.title}
+        </h3>
+
+        <p className="mt-2 mx-auto max-w-[280px] text-sm leading-[1.6] text-[#2b1a12]/70">
+          {card.text}
+        </p>
+      </article>
+    </Link>
+  ))}
+</div>
+
+</section>
 
       {/* Next steps */}
       <section className="rounded-2xl border bg-white/70 p-6 sm:p-8">
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-[#2b1a12]">Next steps</h2>
           <p className="mt-3 text-lg text-[#2b1a12]/75 max-w-3xl mx-auto">
-            A simple pathway from heritage, to practical planning, to purchase through your local store network.
+            A practical pathway from product selection, to ration planning, to purchase through your local store network.
           </p>
         </div>
 

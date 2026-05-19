@@ -11,6 +11,7 @@ import { HomePage } from '@/pages/home-page'
 import { OurStoryPage } from '@/pages/our-story-page'
 import { ProductsPage } from '@/pages/products-page'
 import { WhereToBuyPage } from '@/pages/where-to-buy-page'
+import { FloaterDoserPage } from '@/pages/floater-doser-page'
 
 const rootRoute = createRootRoute({
   component: SiteLayout,
@@ -32,6 +33,12 @@ const productsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/products',
   component: ProductsPage,
+})
+
+const floaterDoserRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/floater-doser',
+  component: FloaterDoserPage,
 })
 
 const calculatorRoute = createRoute({
@@ -58,8 +65,9 @@ const routeTree = rootRoute.addChildren([
   productsRoute,
   calculatorRoute,
   whereToBuyRoute,
+  floaterDoserRoute,
   contactRoute,
-])
+  ])
 
 export const router = createRouter({ routeTree })
 

@@ -4,28 +4,33 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t bg-muted/50">
-      <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground">
-        <div className="grid gap-4 text-center sm:grid-cols-3 sm:items-center sm:text-left">
-          
+    <footer className="mt-20 border-t border-black/10 bg-[#efe7d6]">
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <div className="grid gap-6 text-center sm:grid-cols-3 sm:items-center sm:text-left">
           {/* Left */}
-          <p className="font-medium text-[#2b1a12]/80">
-            Sandy Bryant’s Mixtures®
-          </p>
+          <div className="space-y-1">
+            <p className="font-semibold tracking-wide text-[#2b1a12]">
+              Sandy Bryant’s Mixtures®
+            </p>
+
+            <p className="text-xs text-[#2b1a12]/60">
+              Practical livestock mineral supplementation
+            </p>
+          </div>
 
           {/* Centre */}
-          <p className="sm:text-center">
+          <div className="text-sm text-[#2b1a12]/65 sm:text-center">
             © {year} Westminster Pastoral Company. All rights reserved.
-          </p>
+          </div>
 
           {/* Right */}
           <div className="flex justify-center sm:justify-end">
-            <img
-              src={wpcCrest}
-              alt="Westminster Pastoral Company crest"
-              className="h-16 w-auto object-contain opacity-90"
-              loading="lazy"
-            />
+           <img
+  src={wpcCrest}
+  alt="Westminster Pastoral Company crest"
+  className="h-20 w-auto object-contain opacity-80 transition hover:opacity-100"
+  loading="lazy"
+/>
           </div>
         </div>
       </div>

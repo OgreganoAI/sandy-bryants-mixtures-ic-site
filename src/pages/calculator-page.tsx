@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AlertCircle } from 'lucide-react'
-import { useLocation } from '@tanstack/react-router'
+import { Link, useLocation } from '@tanstack/react-router'
 
 import {
   calculatorProduct,
@@ -56,6 +56,7 @@ export function CalculatorPage() {
   const [inlineDays, setInlineDays] = useState('7')
 
   const isSheep = animalType === 'sheep'
+const isSixWeekOnlyAnimal = animalType === 'sheep'
   const herdLabel = isSheep ? 'flock' : 'herd'
   const currentVariant = calculatorProduct.variants.find((variant) => variant.id === selectedVariant)
   const variantAccentClass =
@@ -79,12 +80,15 @@ export function CalculatorPage() {
   }, [location.searchStr])
 
   const handleAnimalTypeChange = (value: string) => {
-    const next = value as AnimalType
-    setAnimalType(next)
-    if (next === 'sheep') {
-      setAverageLiveweight('')
-    }
+  const next = value as AnimalType
+  setAnimalType(next)
+
+  if (next === 'sheep' ) {
+    setAverageLiveweight('')
+    setRepeatInterval('6')
+    setSelectedVariant('sheep-and-cattle-6.5-cu')
   }
+}
 
   const handleCattleClassChange = (value: string) => {
     setCattleClass(value)
@@ -199,8 +203,8 @@ export function CalculatorPage() {
         </p>
       </header>
 
-      <div className="rounded-lg border bg-white p-4 space-y-4">
-        <h2 className="text-xl font-semibold">Product and variant</h2>
+      <div className="rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm space-y-4">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#2b1a12]">Product and variant</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="space-y-2 text-sm">
             <span className="font-medium">Product</span>
@@ -260,8 +264,8 @@ export function CalculatorPage() {
         )}
       </div>
 
-      <div className="rounded-lg border bg-white p-4 space-y-4">
-        <h2 className="text-xl font-semibold">Animal details</h2>
+      <div className="rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm space-y-4">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#2b1a12]">Animal details</h2>
 
         <div className="grid gap-4 md:grid-cols-2">
           <label className="space-y-2 text-sm">
@@ -343,18 +347,7 @@ export function CalculatorPage() {
             </label>
           )}
 
-          <label className="space-y-2 text-sm">
-            <span className="font-medium">Repeat interval</span>
-            <select
-              className="w-full rounded-md border px-3 py-2 bg-white"
-              value={repeatInterval}
-              onChange={(event) => setRepeatInterval(event.target.value)}
-            >
-              <option value="4">4 weeks</option>
-              <option value="5">5 weeks</option>
-              <option value="6">6 weeks</option>
-            </select>
-          </label>
+      
         </div>
 
         {calc.weightWarning && (
@@ -366,13 +359,28 @@ export function CalculatorPage() {
 
         {calc.sheepNote && <p className="text-sm text-muted-foreground">{calc.sheepNote}</p>}
 
-        <p className="text-sm text-muted-foreground">
-          Label guidance is generally 4 to 6 week intervals. The table default for the selected liveweight is {calc.defaultIntervalWeeks} weeks.
-        </p>
-      </div>
+       <div
+  className={`rounded-lg border px-4 py-3 text-sm leading-[1.7] ${
+    isSixWeekOnlyAnimal
+      ? 'border-[#c89b2c]/30 bg-[#fff8e8] text-[#7a5a12]'
+      : 'border-black/10 bg-white/50 text-[#2b1a12]/75'
+  }`}
+>
+  {isSixWeekOnlyAnimal ? (
+    <p>
+      Do not provide serving of product to sheep more than once every 6 (six) weeks.
+    </p>
+  ) : (
+    <p>
+      Typical supplementation interval: 4 to 6 weeks depending on class,
+      seasonal conditions, and management requirements.
+    </p>
+  )}
+</div>
+        </div>
 
-      <div className="rounded-lg border bg-white p-4 space-y-4">
-        <h2 className="text-xl font-semibold">Rationing method</h2>
+      <div className="rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm space-y-4">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#2b1a12]">Rationing method</h2>
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
@@ -404,8 +412,17 @@ export function CalculatorPage() {
           </button>
         </div>
 
+<p className="mt-3 text-sm text-[#2b1a12]/70">
+  <Link
+    to="/floater-doser"
+    className="font-medium text-[#2f6db3] underline decoration-[#2f6db3]/30 underline-offset-4 hover:text-[#1f4f86] hover:decoration-[#1f4f86]"
+  >
+    Learn more about the Floater~Doser® delivery system →
+  </Link>
+</p>
+
         {method === 'feed-ration' && (
-          <div className="space-y-3">
+          <div className="space-y-3 rounded-xl border border-[#2f6b45]/15 bg-[#f7faf7] p-4 shadow-sm">
             <div className="flex items-center justify-between border-b py-2 text-sm">
               <span>Ration per animal</span>
               <strong>{calc.rationPerAnimalMl || 0} mL</strong>
