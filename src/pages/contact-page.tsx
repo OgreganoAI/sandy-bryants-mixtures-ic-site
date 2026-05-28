@@ -1,7 +1,25 @@
 import nutrienLogo from '@/assets/partners/nutrien-ag-solutions-logo.png'
 import crtLogo from '@/assets/partners/crt-logo.png'
+import { useEffect } from 'react'
 
 export function ContactPage() {
+  useEffect(() => {
+  document.title = 'Contact | Sandy Bryant’s Mixtures®'
+
+  const description =
+    'Contact Sandy Bryant’s Mixtures® through your local Nutrien Ag Solutions® branch or CRT store for livestock mineral supplementation enquiries.'
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-10">
       <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12] text-center">

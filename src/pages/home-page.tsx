@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import sandyBryantsLogo from '@/assets/brand/sandy-bryants-mixtures-logo.png'
 import nutrienLogo from '@/assets/partners/nutrien-ag-solutions-logo.png'
 import crtLogo from '@/assets/partners/crt-logo.png'
+import { useEffect } from 'react'
 
 const productCards = [
   {
@@ -25,6 +26,23 @@ const productCards = [
 ]
 
 export function HomePage() {
+  useEffect(() => {
+  document.title =
+    "Sandy Bryant’s Mixtures® | Livestock Mineral Supplementation"
+
+  const description =
+    "Australian livestock mineral supplementation for cattle and sheep, including practical water-based delivery through the Floater~Doser® system."
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
   return (
     <main className="mx-auto max-w-6xl px-6 py-14 space-y-14">
       {/* Hero */}

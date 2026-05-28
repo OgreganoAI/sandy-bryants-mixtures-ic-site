@@ -1,7 +1,25 @@
 import nutrienLogo from '@/assets/partners/nutrien-ag-solutions-logo.png'
 import crtLogo from '@/assets/partners/crt-logo.png'
+import { useEffect } from 'react'
 
 export function WhereToBuyPage() {
+useEffect(() => {
+  document.title = 'Where to Buy | Sandy Bryant’s Mixtures®'
+
+  const description =
+    'Find Sandy Bryant’s Mixtures® livestock mineral supplements through Nutrien Ag Solutions® and CRT store networks across Australia.'
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12] text-center">

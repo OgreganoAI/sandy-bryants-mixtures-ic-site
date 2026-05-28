@@ -29,7 +29,7 @@ export function CalculatorPage() {
 
     const metaDescription = document.querySelector('meta[name="description"]')
     const descriptionContent =
-      'Use the Sandy Bryant’s Mixtures® calculator to estimate ration volumes for cattle, sheep, and Hard Country Cattle, Travel & Yard – 9.5 Cu supplementation plans.'
+      'Estimate livestock mineral supplementation volumes for cattle and sheep using Sandy Bryant’s Mixtures® practical ration calculator.'
 
     if (metaDescription) {
       metaDescription.setAttribute('content', descriptionContent)

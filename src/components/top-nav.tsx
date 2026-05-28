@@ -22,13 +22,15 @@ export function TopNav() {
         <ul className="flex flex-wrap items-center justify-end gap-4 text-sm">
           {navLinks.map((item) => (
             <li key={item.to}>
-              <Link
-                to={item.to}
-                className="hover:underline"
-                activeProps={{ className: 'underline' }}
-              >
-                {item.label}
-              </Link>
+             <Link
+  to={item.to}
+  className="rounded-full px-3 py-1.5 text-[#2b1a12]/75 transition hover:bg-white/50 hover:text-[#2b1a12]"
+  activeProps={{
+    className: 'rounded-full bg-white/70 px-3 py-1.5 text-[#2b1a12] shadow-sm',
+  }}
+>
+  {item.label}
+</Link>
             </li>
           ))}
         </ul>

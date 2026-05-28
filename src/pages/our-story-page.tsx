@@ -1,7 +1,25 @@
 import sandyBryantWatermark from '@/assets/brand/Sandy-Bryant.png'
 import { Link } from '@tanstack/react-router'
+import { useEffect } from 'react'
 
 export function OurStoryPage() {
+  useEffect(() => {
+  document.title = 'Our Story | Sandy Bryant’s Mixtures®'
+
+  const description =
+    'Discover the farming heritage behind Sandy Bryant’s Mixtures®, from 1841 Australian settlement through generations of practical livestock mineral formulation.'
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
+
   return (
     <main className="relative mx-auto max-w-5xl overflow-hidden px-6 py-12">
       {/* Watermark */}

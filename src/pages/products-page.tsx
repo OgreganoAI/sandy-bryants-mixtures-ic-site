@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import sheepCattleLabel from '@/assets/labels/label-sheep-cattle-light-blue.png'
 import cattleOnlyLabel from '@/assets/labels/label-cattle-only-green.png'
 import hardCountryLabel from '@/assets/labels/label-hard-country-cattle-maroon.png'
+import { useEffect } from 'react'
 
 const products = [
   {
@@ -64,6 +65,22 @@ const products = [
 ]
 
 export function ProductsPage() {
+  useEffect(() => {
+  document.title = "Product Range | Sandy Bryant’s Mixtures®"
+
+  const description =
+    "Explore Sandy Bryant’s Mixtures® livestock mineral supplement formulations, including Sheep & Cattle 6.5 Cu, Cattle Only 8.5 Cu, and Hard Country Cattle with FulviPhos."
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
   return (
     <main className="mx-auto max-w-5xl px-6 py-14 space-y-14">
       {/* Title */}

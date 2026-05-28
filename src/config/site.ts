@@ -4,6 +4,8 @@ export const navLinks = [
   { to: '/products', label: 'Products' },
   { to: '/floater-doser', label: 'Floater~Doser' },
   { to: '/calculator', label: 'Calculator' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/where-to-buy', label: 'Where to Buy' },
   { to: '/contact', label: 'Contact' },
+  
 ] as const

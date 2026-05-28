@@ -1,7 +1,25 @@
 import { Link } from '@tanstack/react-router'
 import floaterDoserImage from '@/assets/floater-doser/floater-doser-5l-drum.png'
+import { useEffect } from 'react'
 
 export function FloaterDoserPage() {
+    useEffect(() => {
+  document.title = 'Floater~Doser® | Water-Based Livestock Supplementation'
+
+  const description =
+    'Learn about the Floater~Doser® system for practical trough-water livestock mineral supplementation using Sandy Bryant’s Mixtures®.'
+
+  let meta = document.querySelector('meta[name="description"]')
+
+  if (!meta) {
+    meta = document.createElement('meta')
+    meta.setAttribute('name', 'description')
+    document.head.appendChild(meta)
+  }
+
+  meta.setAttribute('content', description)
+}, [])
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-14 space-y-12">
       <section className="text-center space-y-4">
