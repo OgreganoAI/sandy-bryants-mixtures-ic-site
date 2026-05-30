@@ -4,6 +4,26 @@ import sandyBryantsLogo from '@/assets/brand/sandy-bryants-mixtures-logo.png'
 import { navLinks } from '@/config/site'
 
 export function TopNav() {
+  const renderNavLabel = (label: string) => {
+    if (label === 'Floater~Doser') {
+      return (
+        <>
+          Floater~Doser<span className="align-super text-[0.6em]">®</span>
+        </>
+      )
+    }
+
+    return label
+  }
+
+  const linkClass = (priority: (typeof navLinks)[number]['priority'] | undefined) => {
+    if (priority === 'primary') {
+      return 'rounded-full px-3 py-1.5 font-semibold text-[#2b1a12] transition hover:bg-white/60'
+    }
+
+    return 'rounded-full px-3 py-1.5 text-[#2b1a12]/70 transition hover:bg-white/50 hover:text-[#2b1a12]'
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#efe7d6]/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
@@ -24,12 +44,12 @@ export function TopNav() {
             <li key={item.to}>
              <Link
   to={item.to}
-  className="rounded-full px-3 py-1.5 text-[#2b1a12]/75 transition hover:bg-white/50 hover:text-[#2b1a12]"
+  className={linkClass(item.priority)}
   activeProps={{
     className: 'rounded-full bg-white/70 px-3 py-1.5 text-[#2b1a12] shadow-sm',
   }}
 >
-  {item.label}
+  {renderNavLabel(item.label)}
 </Link>
             </li>
           ))}

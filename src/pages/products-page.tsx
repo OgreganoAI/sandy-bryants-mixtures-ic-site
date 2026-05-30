@@ -16,6 +16,7 @@ const products = [
     labelClass: 'label-blue',
     labelImage: sheepCattleLabel,
     iconImage: sheepCattleIcon,
+    variantId: 'sheep-and-cattle-6.5-cu',
     summary: 'Balanced copper formulation suitable for cattle and sheep.',
     details: {
       designedFor:
@@ -41,6 +42,7 @@ const products = [
     labelClass: 'label-green',
     labelImage: cattleOnlyLabel,
     iconImage: cattleOnlyIcon,
+    variantId: 'cattle-only-8.5-cu',
     summary: 'Higher copper formulation designed for cattle-only systems.',
     details: {
       designedFor:
@@ -63,6 +65,7 @@ const products = [
     labelClass: 'label-maroon',
 labelImage: hardCountryLabel,
 iconImage: hardCountryIcon,
+    variantId: 'hard-country-cattle-travel-yard-9.5-cu',
     summary:
       'Elevated copper formulation suited to transport, yarding, and hard-country cattle systems.',
     details: {
@@ -150,6 +153,12 @@ export function ProductsPage() {
   )}
 </h2>
               <p className="max-w-[320px] text-[#2b1a12]/75">{p.summary}</p>
+              <a
+                href={`/calculator?variant=${p.variantId}`}
+                className="inline-flex rounded-md border border-black/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#2b1a12] shadow-sm transition hover:bg-white hover:shadow"
+              >
+                Calculate this product
+              </a>
             </div>
 
             {/* Structured detail, collapsible */}

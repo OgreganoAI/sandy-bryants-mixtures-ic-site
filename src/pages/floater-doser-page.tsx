@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router'
 import floaterDoserImage from '@/assets/floater-doser/floater-doser-5l-drum.png'
 import { useEffect } from 'react'
 
@@ -93,12 +92,12 @@ export function FloaterDoserPage() {
           Use the Livestock Ration Calculator to estimate volumes before preparing a supplementation
           event.
         </p>
-        <Link
-          to="/calculator"
+        <a
+          href="/calculator?method=floater"
           className="inline-flex rounded-xl bg-primary px-6 py-3 text-primary-foreground font-medium hover:opacity-90 transition"
         >
           Open the Calculator
-        </Link>
+        </a>
       </section>
     </main>
   )

@@ -93,7 +93,11 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     const paramVariant = params.get('variant')
     const hasVariant = calculatorProduct.variants.some((variant) => variant.id === paramVariant)
     const nextVariant = hasVariant ? (paramVariant as CalculatorVariantId) : DEFAULT_VARIANT_ID
+    const paramMethod = params.get('method')
     setSelectedVariant(nextVariant)
+    if (paramMethod === 'feed-ration' || paramMethod === 'floater') {
+      setMethod(paramMethod)
+    }
   }, [location.searchStr])
 
   const handleAnimalTypeChange = (value: string) => {
@@ -394,28 +398,29 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     Learn more about the Floater~Doser<span className="align-super text-[0.6em]">®</span> delivery system →
   </Link>
 </p>
-
         {method === 'feed-ration' && (
-          <div className="space-y-3 rounded-xl border border-[#2f6b45]/15 bg-[#f7faf7] p-4 shadow-sm">
-            <div className="flex items-center justify-between border-b py-2 text-sm">
-              <span>Ration per animal</span>
-              <strong>{calc.rationPerAnimalMl || 0} mL</strong>
-            </div>
-            <div className="flex items-center justify-between border-b py-2 text-sm">
-              <span>{herdLabel[0].toUpperCase() + herdLabel.slice(1)} ration per event</span>
-              <strong>{calc.groupRationL.toFixed(2)} L</strong>
-            </div>
-          </div>
-        )}
-
-        {method === 'floater' && (
-          <div className="space-y-3">
+          <div className="space-y-3 rounded-xl border border-black/10 bg-white/60 p-4 shadow-sm">
+            <p className="text-sm font-semibold text-[#2b1a12]">Feed ration result</p>
             <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
               <span>Ration per animal</span>
               <strong className="accent-badge rounded px-2 py-1">{calc.rationPerAnimalMl || 0} mL</strong>
             </div>
             <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
-              <span>Total supplement required per ration event</span>
+              <span>Supplement required per ration event</span>
+              <strong className="accent-badge rounded px-2 py-1">{calc.groupRationL.toFixed(2)} L</strong>
+            </div>
+          </div>
+        )}
+
+        {method === 'floater' && (
+          <div className="space-y-3 rounded-xl border border-black/10 bg-white/60 p-4 shadow-sm">
+            <p className="text-sm font-semibold text-[#2b1a12]">Floater~Doser<span className="align-super text-[0.6em]">®</span> result</p>
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Ration per animal</span>
+              <strong className="accent-badge rounded px-2 py-1">{calc.rationPerAnimalMl || 0} mL</strong>
+            </div>
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Supplement required per ration event</span>
               <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.amountL} L</strong>
             </div>
             <p className="text-sm text-muted-foreground whitespace-pre-line">
