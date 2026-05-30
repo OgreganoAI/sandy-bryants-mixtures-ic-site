@@ -12,8 +12,30 @@ import {
   type CalculatorVariantId,
 } from '@/config/calculator'
 
-type MethodId = 'feed-ration' | 'tank-water' | 'inline-pump' | 'floater'
+type MethodId = 'feed-ration' | 'floater'
 const DEFAULT_VARIANT_ID: CalculatorVariantId = 'sheep-and-cattle-6.5-cu'
+
+function renderFloaterDoserText(text: string) {
+  return text.split(/(Floater~Doser®)/g).map((part, index) => {
+    if (part === 'Floater~Doser®') {
+      return (
+        <span key={index}>
+          Floater~Doser<span className="align-super text-[0.6em]">®</span>
+        </span>
+      )
+    }
+
+    return part
+  })
+}
+
+function SandyBryantsMixturesName() {
+  return (
+    <>
+      Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
+    </>
+  )
+}
 
 function getCattleRation(weightKg: number): { mlPerAnimal: number; defaultIntervalWeeks: number } | null {
   if (!Number.isFinite(weightKg)) return null
@@ -49,11 +71,6 @@ export function CalculatorPage() {
   const [sheepClass, setSheepClass] = useState('adult-sheep')
   const [numberOfAnimals, setNumberOfAnimals] = useState('1')
   const [averageLiveweight, setAverageLiveweight] = useState('')
-  const [repeatInterval, setRepeatInterval] = useState('6')
-  const [tankVolumeL, setTankVolumeL] = useState('5000')
-  const [tankDays, setTankDays] = useState('7')
-  const [inlineWaterPerDayL, setInlineWaterPerDayL] = useState('8000')
-  const [inlineDays, setInlineDays] = useState('7')
 
   const isSheep = animalType === 'sheep'
 const isSixWeekOnlyAnimal = animalType === 'sheep'
@@ -85,7 +102,6 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
 
   if (next === 'sheep' ) {
     setAverageLiveweight('')
-    setRepeatInterval('6')
     setSelectedVariant('sheep-and-cattle-6.5-cu')
   }
 }
@@ -168,38 +184,12 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     }
   }, [calc.groupRationL, herdLabel])
 
-  const tankPlan = useMemo(() => {
-    const volumeL = Math.max(1, parseFloat(tankVolumeL) || 1)
-    const days = Math.max(1, parseInt(tankDays, 10) || 1)
-    const totalL = calc.groupRationL
-    const perDayL = totalL / days
-    const mlPerLitreWater = (perDayL * 1000) / volumeL
-
-    return {
-      perDayL,
-      mlPerLitreWater,
-    }
-  }, [tankVolumeL, tankDays, calc.groupRationL])
-
-  const inlinePlan = useMemo(() => {
-    const waterPerDayL = Math.max(1, parseFloat(inlineWaterPerDayL) || 1)
-    const days = Math.max(1, parseInt(inlineDays, 10) || 1)
-    const totalWaterL = waterPerDayL * days
-    const totalMl = calc.groupRationL * 1000
-    const mlPerLitreWater = totalMl / totalWaterL
-
-    return {
-      totalWaterL,
-      mlPerLitreWater,
-    }
-  }, [inlineWaterPerDayL, inlineDays, calc.groupRationL])
-
   return (
     <section className="space-y-6">
       <header className="space-y-2">
         <h1 className="text-3xl font-bold">Livestock Ration Calculator</h1>
         <p className="text-muted-foreground">
-          Sandy Bryant’s Mixtures® supplementation planning for cattle, sheep, and Hard Country Cattle, Travel & Yard – 9.5 Cu.
+          Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> supplementation planning for cattle, sheep, and Hard Country Cattle, Travel & Yard – 9.5 Cu.
         </p>
       </header>
 
@@ -208,11 +198,9 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
         <div className="grid gap-4 md:grid-cols-2">
           <label className="space-y-2 text-sm">
             <span className="font-medium">Product</span>
-            <input
-              className="w-full rounded-md border px-3 py-2 bg-muted/30"
-              value={calculatorProduct.name}
-              readOnly
-            />
+            <span className="flex min-h-10 w-full items-center rounded-md border bg-muted/30 px-3 py-2">
+              <SandyBryantsMixturesName />
+            </span>
           </label>
 
           <label className="space-y-2 text-sm">
@@ -391,24 +379,10 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
           </button>
           <button
             type="button"
-            className={`rounded-md border px-3 py-2 text-sm ${method === 'tank-water' ? 'bg-primary text-primary-foreground' : 'bg-white'}`}
-            onClick={() => setMethod('tank-water')}
-          >
-            Tank-based water supplementation
-          </button>
-          <button
-            type="button"
-            className={`rounded-md border px-3 py-2 text-sm ${method === 'inline-pump' ? 'bg-primary text-primary-foreground' : 'bg-white'}`}
-            onClick={() => setMethod('inline-pump')}
-          >
-            Inline pump rationing
-          </button>
-          <button
-            type="button"
             className={`rounded-md border px-3 py-2 text-sm ${method === 'floater' ? 'bg-primary text-primary-foreground' : 'bg-white'}`}
             onClick={() => setMethod('floater')}
           >
-            Floater~Doser®
+            Floater~Doser<span className="align-super text-[0.6em]">®</span>
           </button>
         </div>
 
@@ -417,7 +391,7 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     to="/floater-doser"
     className="font-medium text-[#2f6db3] underline decoration-[#2f6db3]/30 underline-offset-4 hover:text-[#1f4f86] hover:decoration-[#1f4f86]"
   >
-    Learn more about the Floater~Doser® delivery system →
+    Learn more about the Floater~Doser<span className="align-super text-[0.6em]">®</span> delivery system →
   </Link>
 </p>
 
@@ -434,79 +408,19 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
           </div>
         )}
 
-        {method === 'tank-water' && (
-          <div className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="space-y-2 text-sm">
-                <span className="font-medium">Tank volume (L)</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="w-full rounded-md border px-3 py-2"
-                  value={tankVolumeL}
-                  onChange={(event) => setTankVolumeL(event.target.value)}
-                />
-              </label>
-              <label className="space-y-2 text-sm">
-                <span className="font-medium">Days to deliver one ration event</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="w-full rounded-md border px-3 py-2"
-                  value={tankDays}
-                  onChange={(event) => setTankDays(event.target.value)}
-                />
-              </label>
-            </div>
-            <p className="text-sm">
-              Volume required per day: <strong>{tankPlan.perDayL.toFixed(2)} L</strong>
-            </p>
-            <p className="text-sm">
-              Mixing guide: <strong>{tankPlan.mlPerLitreWater.toFixed(2)} mL per litre</strong> of tank water.
-            </p>
-          </div>
-        )}
-
-        {method === 'inline-pump' && (
-          <div className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="space-y-2 text-sm">
-                <span className="font-medium">Water flow per day (L)</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="w-full rounded-md border px-3 py-2"
-                  value={inlineWaterPerDayL}
-                  onChange={(event) => setInlineWaterPerDayL(event.target.value)}
-                />
-              </label>
-              <label className="space-y-2 text-sm">
-                <span className="font-medium">Days to deliver one ration event</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="w-full rounded-md border px-3 py-2"
-                  value={inlineDays}
-                  onChange={(event) => setInlineDays(event.target.value)}
-                />
-              </label>
-            </div>
-            <p className="text-sm">
-              Total water in period: <strong>{inlinePlan.totalWaterL.toFixed(0)} L</strong>
-            </p>
-            <p className="text-sm">
-              Inline target concentration: <strong>{inlinePlan.mlPerLitreWater.toFixed(4)} mL per litre</strong> of water.
-            </p>
-          </div>
-        )}
-
         {method === 'floater' && (
           <div className="space-y-3">
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Ration per animal</span>
+              <strong className="accent-badge rounded px-2 py-1">{calc.rationPerAnimalMl || 0} mL</strong>
+            </div>
             <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
               <span>Total supplement required per ration event</span>
               <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.amountL} L</strong>
             </div>
-            <p className="text-sm text-muted-foreground whitespace-pre-line">{floaterGuidance.text}</p>
+            <p className="text-sm text-muted-foreground whitespace-pre-line">
+              {renderFloaterDoserText(floaterGuidance.text)}
+            </p>
           </div>
         )}
       </div>

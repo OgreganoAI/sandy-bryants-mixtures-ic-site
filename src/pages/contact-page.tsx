@@ -77,7 +77,7 @@ export function ContactPage() {
           </div>
 
           <p className="mt-5 text-sm text-[#2b1a12]/65">
-            Sandy Bryant’s Mixtures® is supplied exclusively through Nutrien Ag Solutions and CRT.
+            Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> is supplied exclusively through Nutrien Ag Solutions and CRT.
           </p>
         </section>
 
@@ -86,7 +86,7 @@ export function ContactPage() {
           <h2 className="text-2xl font-semibold text-[#2b1a12]">General enquiries</h2>
 
           <p className="mt-3 text-base text-[#2b1a12]/75">
-            If you have a general enquiry about Sandy Bryant’s Mixtures® (not related to store ordering), you can
+            If you have a general enquiry about Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> (not related to store ordering), you can
             contact us via your local store team, who will direct the enquiry appropriately.
           </p>
 

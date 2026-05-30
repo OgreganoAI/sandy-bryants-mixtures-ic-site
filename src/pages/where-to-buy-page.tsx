@@ -26,10 +26,9 @@ useEffect(() => {
         Where to Buy
       </h1>
 
-      <p className="mt-8 text-xl text-center text-[#2b1a12]/80">
-        Sandy Bryant’s Mixtures® is supplied exclusively through the Nutrien Ag Solutions and CRT store network.
-      </p>
-
+   <p className="mt-8 text-xl text-center text-[#2b1a12]/80">
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> is supplied exclusively through the Nutrien Ag Solutions and CRT store network.
+</p>
       <p className="mt-6 text-lg text-center text-[#2b1a12]/75">
         If your local store does not currently stock the range, ask them to order it in for you.
       </p>
@@ -78,7 +77,7 @@ useEffect(() => {
       </div>
 
       <p className="mt-10 text-base text-center text-[#2b1a12]/70">
-        Sandy Bryant’s Mixtures® is not available through third-party wholesale or distribution channels.
+        Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> is not available through third-party wholesale or distribution channels.
       </p>
     </main>
   )

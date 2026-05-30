@@ -1,6 +1,32 @@
 import { useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
 
+function formatTrademarkText(text: string) {
+  return (
+    <>
+      {text.split(/(Sandy Bryant’s Mixtures®|Floater~Doser®)/g).map((part, index) => {
+        if (part === 'Sandy Bryant’s Mixtures®') {
+          return (
+            <span key={index}>
+              Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
+            </span>
+          )
+        }
+
+        if (part === 'Floater~Doser®') {
+          return (
+            <span key={index}>
+              Floater~Doser<span className="align-super text-[0.6em]">®</span>
+            </span>
+          )
+        }
+
+        return part
+      })}
+    </>
+  )
+}
+
 const faqs = [
   {
     question: 'What are Sandy Bryant’s Mixtures®?',
@@ -69,28 +95,28 @@ export function FaqPage() {
           Frequently Asked Questions
         </h1>
 
-        <p className="mx-auto max-w-2xl text-lg text-[#2b1a12]/75">
-          Practical answers about Sandy Bryant’s Mixtures®, formulation selection,
-          supplementation methods, and store availability.
-        </p>
+       <p className="mx-auto max-w-2xl text-lg text-[#2b1a12]/75">
+  Practical answers about Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>, formulation selection,
+  supplementation methods, and store availability.
+</p>
       </section>
 
       <section className="mx-auto max-w-3xl space-y-4">
-        {faqs.map((item) => (
-          <details
-            key={item.question}
-            className="rounded-2xl border border-black/10 bg-white/70 p-5 shadow-sm"
-          >
-            <summary className="cursor-pointer select-none text-lg font-semibold text-[#2b1a12]">
-              {item.question}
-            </summary>
+  {faqs.map((item) => (
+    <details
+      key={item.question}
+      className="rounded-2xl border border-black/10 bg-white/70 p-5 shadow-sm"
+    >
+      <summary className="cursor-pointer select-none text-lg font-semibold text-[#2b1a12]">
+        {formatTrademarkText(item.question)}
+      </summary>
 
-            <p className="mt-3 leading-[1.6] text-[#2b1a12]/75">
-              {item.answer}
-            </p>
-          </details>
-        ))}
-      </section>
+      <p className="mt-3 leading-[1.6] text-[#2b1a12]/75">
+  {formatTrademarkText(item.answer)}
+</p>
+    </details>
+  ))}
+</section>
 
       <section className="text-center space-y-4">
         <h2 className="text-2xl font-semibold text-[#2b1a12]">

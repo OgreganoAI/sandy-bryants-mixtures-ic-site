@@ -10,8 +10,8 @@ export function Footer() {
           {/* Left */}
           <div className="space-y-1">
             <p className="font-semibold tracking-wide text-[#2b1a12]">
-              Sandy Bryant’s Mixtures®
-            </p>
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
+</p>
 
             <p className="text-xs text-[#2b1a12]/60">
               Practical livestock mineral supplementation

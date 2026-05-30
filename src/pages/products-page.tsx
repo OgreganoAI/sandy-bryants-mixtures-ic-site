@@ -1,8 +1,13 @@
 import { Link } from '@tanstack/react-router'
-import sheepCattleLabel from '@/assets/labels/label-sheep-cattle-light-blue.png'
-import cattleOnlyLabel from '@/assets/labels/label-cattle-only-green.png'
-import hardCountryLabel from '@/assets/labels/label-hard-country-cattle-maroon.png'
 import { useEffect } from 'react'
+
+const sheepCattleLabel = new URL('../assets/labels/label-sheep-cattle-light-blue.png', import.meta.url).href
+const cattleOnlyLabel = new URL('../assets/labels/label-cattle-only-green.png', import.meta.url).href
+const hardCountryLabel = new URL('../assets/labels/label-hard-country-cattle-maroon.png', import.meta.url).href
+const sheepCattleIcon = new URL('../assets/sheep-cattle-icon.png', import.meta.url).href
+const cattleOnlyIcon = new URL('../assets/cattle-only-icon.png', import.meta.url).href
+const hardCountryIcon = new URL('../assets/hard-country-cattle-icon.png', import.meta.url).href
+
 
 const products = [
   {
@@ -10,6 +15,7 @@ const products = [
     variantText: '6.5 copper variant',
     labelClass: 'label-blue',
     labelImage: sheepCattleLabel,
+    iconImage: sheepCattleIcon,
     summary: 'Balanced copper formulation suitable for cattle and sheep.',
     details: {
       designedFor:
@@ -21,7 +27,12 @@ const products = [
     Sheep & Cattle represents the primary formulation within the range. A 6.5 copper level allows utilisation across all ruminants, particularly sheep. Incorporating lignin-based technology to organically chelate and stabilise the elements, this formulation provides a balanced and stabilised supplement designed to support optimal mineral availability within the animal.
   </>
 ),
-      deliveryCompatibility: 'Suitable for addition to feed, provision through the Floater~Doser®, and delivery via inline water systems or tanks.',
+      deliveryCompatibility: (
+        <>
+          Suitable for addition to feed, provision through the Floater~Doser
+          <span className="align-super text-[0.6em]">®</span>, and delivery via inline water systems or tanks.
+        </>
+      ),
     },
   },
   {
@@ -29,6 +40,7 @@ const products = [
     variantText: '8.5 copper variant',
     labelClass: 'label-green',
     labelImage: cattleOnlyLabel,
+    iconImage: cattleOnlyIcon,
     summary: 'Higher copper formulation designed for cattle-only systems.',
     details: {
       designedFor:
@@ -37,14 +49,20 @@ const products = [
         'Used where increased copper concentration is appropriate within regional production systems.',
       formulationApproach:
         'Shares the same organically chelated lignin base formulation as the full range, with copper adjusted to 8.5 to suit cattle-only management systems.',
-      deliveryCompatibility:
-        'Suitable for addition to feed, provision through the Floater~Doser®, and delivery via inline water systems or tanks.',
+      deliveryCompatibility: (
+        <>
+          Suitable for addition to feed, provision through the Floater~Doser
+          <span className="align-super text-[0.6em]">®</span>, and delivery via inline water systems or tanks.
+        </>
+      ),
     },
   },
   {
   title: 'Hard Country Cattle, Travel & Yard',
     variantText: '9.5 copper variant',
-    labelClass: 'label-maroon',labelImage: hardCountryLabel,
+    labelClass: 'label-maroon',
+labelImage: hardCountryLabel,
+iconImage: hardCountryIcon,
     summary:
       'Elevated copper formulation suited to transport, yarding, and hard-country cattle systems.',
     details: {
@@ -58,8 +76,12 @@ const products = [
     <span className="font-semibold text-[#2b1a12]">FulviPhos</span>, progressively formulated to address phosphorus deficiency concerns in more arid regions of Australia and management challenges including weight loss, stress during transport, and '<span className="italic">Dark Cutter</span>' risk.
   </>
 ),
-      deliveryCompatibility:
-        'Suitable for addition to feed, provision through the Floater~Doser®, and delivery via inline water systems or tanks.',
+      deliveryCompatibility: (
+        <>
+          Suitable for addition to feed, provision through the Floater~Doser
+          <span className="align-super text-[0.6em]">®</span>, and delivery via inline water systems or tanks.
+        </>
+      ),
     },
   },
 ]
@@ -102,11 +124,21 @@ export function ProductsPage() {
             <div className="space-y-2">
               <p className="label-kicker text-sm font-semibold">{p.variantText}</p>
 
+              <div className="flex min-h-44 items-center justify-center py-3">
+                <img
+                  src={p.iconImage}
+                  alt={`${p.title} icon`}
+                  className="h-44 w-full max-w-[260px] object-contain"
+                  loading="eager"
+                />
+              </div>
+
               <img
-               src={p.labelImage}
-               alt={`${p.title} label`}
-               className="mt-4 w-full rounded-lg border border-black/10 bg-white shadow-sm"
-/>
+                src={p.labelImage}
+                alt={`${p.title} label`}
+                className="mt-2 aspect-[0.72] w-full rounded-lg border border-black/10 bg-white object-cover object-top shadow-sm"
+                loading="eager"
+              />
 
               <h2 className="text-xl font-semibold text-[#2b1a12]">
   {p.title}
@@ -140,15 +172,15 @@ export function ProductsPage() {
                   {p.details.formulationApproach}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#2b1a12]">Delivery compatibility: </span>
-{p.details.deliveryCompatibility}{' '}
-<Link
-  to="/floater-doser"
-  className="font-semibold underline underline-offset-4 hover:opacity-80"
->
-  Learn more about the Floater~Doser®
-</Link>
-                </p>
+  <span className="font-semibold text-[#2b1a12]">Delivery compatibility: </span>
+  {p.details.deliveryCompatibility}{' '}
+  <Link
+    to="/floater-doser"
+    className="font-semibold underline underline-offset-4 hover:opacity-80"
+  >
+    Learn more about the Floater~Doser<span className="align-super text-[0.6em]">®</span>
+  </Link>
+</p>
               </div>
             </details>
           </article>
@@ -161,8 +193,8 @@ export function ProductsPage() {
 
         <div className="space-y-3 text-base leading-relaxed text-[#2b1a12]/75 max-w-3xl">
           <p>
-            Sandy Bryant’s Mixtures® are built on a lignin-based organically chelated foundation developed through practical refinement over generations. The chelation structure is designed to support stability within the digestive environment, reducing unwanted binding with competing elements and assisting the protected nutrients to pass through to the abomasum.
-          </p>
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> are built on a lignin-based organically chelated foundation developed through practical refinement over generations. The chelation structure is designed to support stability within the digestive environment, reducing unwanted binding with competing elements and assisting the protected nutrients to pass through to the abomasum.
+</p>
           <p>
             Attention is given to molecular structure and polarity characteristics to enhance mineral availability within the animal.
           </p>

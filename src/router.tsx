@@ -13,11 +13,18 @@ import { ProductsPage } from '@/pages/products-page'
 import { WhereToBuyPage } from '@/pages/where-to-buy-page'
 import { FloaterDoserPage } from '@/pages/floater-doser-page'
 import { FaqPage } from '@/pages/faq-page'
+import { WhySandyBryantsPage } from '@/pages/why-sandy-bryants-page'
 
 const faqRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/faq',
   component: FaqPage,
+})
+
+const whySandyBryantsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/why-sandy-bryants',
+  component: WhySandyBryantsPage,
 })
 
 const rootRoute = createRootRoute({
@@ -75,8 +82,8 @@ const routeTree = rootRoute.addChildren([
   floaterDoserRoute,
   contactRoute,
   faqRoute,
-
-  ])
+  whySandyBryantsRoute,
+])
 
 export const router = createRouter({ routeTree })
 

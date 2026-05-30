@@ -13,9 +13,9 @@ export function TopNav() {
     alt="Sandy Bryant’s Mixtures logo"
     className="h-14 w-auto object-contain"
   />
-  <span className="hidden sm:block text-lg font-semibold tracking-tight text-[#2b1a12]">
-    Sandy Bryant’s Mixtures®
-  </span>
+ <span className="hidden sm:block text-lg font-semibold tracking-tight text-[#2b1a12]">
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.55em]">®</span>
+</span>
 </Link>
 
 

@@ -53,8 +53,8 @@ export function HomePage() {
           className="mx-auto w-full max-w-[260px] sm:max-w-[320px]"
         />
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#2b1a12]">
-          Sandy Bryant’s Mixtures®
-        </h1>
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.45em]">®</span>
+</h1>
 
         <p className="text-xl text-[#2b1a12]/80 max-w-3xl mx-auto">
           Practical livestock mineral supplementation, grounded in heritage and designed for Australian conditions.
@@ -149,8 +149,8 @@ or{' '}
           <article className="rounded-xl border bg-white p-6 text-center">
             <h3 className="text-xl font-semibold text-[#2b1a12]">Our Story</h3>
             <p className="mt-2 text-left text-[#2b1a12]/75">
-              Learn how Sandy Bryant’s Mixtures® evolved through generations of practical farming experience.
-            </p>
+  Learn how Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> evolved through generations of practical farming experience.
+</p>
             <div className="mt-6 flex justify-center">
               <Link
                 to="/our-story"
@@ -213,10 +213,10 @@ or{' '}
         <h2 className="text-3xl font-semibold text-[#2b1a12]">Practical Supplementation Support</h2>
 
         <p className="text-lg text-[#2b1a12]/75">
-          Sandy Bryant’s Mixtures® reflects a long-standing farming heritage, combined with a practical understanding
-          of livestock systems. The range is formulated to assist producers in managing mineral supplementation across
-          a variety of production environments.
-        </p>
+  Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> reflects a long-standing farming heritage, combined with a practical understanding
+  of livestock systems. The range is formulated to assist producers in managing mineral supplementation across
+  a variety of production environments.
+</p>
 
         <p className="text-lg text-[#2b1a12]/75">
           Available exclusively through the Nutrien Ag Solutions and CRT network, the range is supported by local

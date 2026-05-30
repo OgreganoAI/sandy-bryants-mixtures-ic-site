@@ -24,12 +24,12 @@ export function FloaterDoserPage() {
     <main className="mx-auto max-w-5xl px-6 py-14 space-y-12">
       <section className="text-center space-y-4">
         <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12]">
-          Floater~Doser®
+          Floater~Doser<span className="align-super text-[0.6em]">®</span>
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-[#2b1a12]/75">
-          A practical Australian-designed delivery option for providing Sandy Bryant’s Mixtures®
-          through livestock water systems.
-        </p>
+  A practical Australian-designed delivery option for providing Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
+  through livestock water systems.
+</p>
       </section>
 
       <section className="flex justify-center bg-transparent">
@@ -44,10 +44,10 @@ export function FloaterDoserPage() {
       <section className="rounded-2xl border border-black/10 bg-white/60 p-8 space-y-5">
         <h2 className="text-2xl font-semibold text-[#2b1a12]">Practical water-based supplementation</h2>
         <p className="text-[#2b1a12]/75 leading-[1.6]">
-          The Floater~Doser® is designed to support practical on-farm use where simple, repeatable supplementation through trough water is preferred.
+          The Floater~Doser<span className="align-super text-[0.6em]">®</span> is designed to support practical on-farm use where simple, repeatable supplementation through trough water is preferred.
         </p>
         <p className="text-[#2b1a12]/75 leading-[1.6]">
-          Sandy Bryant’s Mixtures® can also be added to feed, delivered through inline water
+          Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> can also be added to feed, delivered through inline water
           systems, or added to tanks where suitable management practices are in place.
         </p>
       </section>
@@ -65,14 +65,14 @@ export function FloaterDoserPage() {
           <h3 className="text-xl font-semibold text-[#2b1a12]">Repeatable use</h3>
           <p className="mt-2 text-[#2b1a12]/75 leading-[1.6]">
             Rations can be planned using animal numbers, liveweight, and the selected Sandy Bryant’s
-            Mixtures® formulation.
+            Mixtures<span className="align-super text-[0.6em]">®</span> formulation.
           </p>
         </article>
 
         <article className="rounded-xl border bg-white p-6">
           <h3 className="text-xl font-semibold text-[#2b1a12]">Flexible delivery</h3>
           <p className="mt-2 text-[#2b1a12]/75 leading-[1.6]">
-            Suitable management may include Floater~Doser®, inline water systems, tanks, or feed-based
+            Suitable management may include Floater~Doser<span className="align-super text-[0.6em]">®</span>, inline water systems, tanks, or feed-based
             supplementation.
           </p>
         </article>
@@ -82,7 +82,7 @@ export function FloaterDoserPage() {
         <h2 className="text-2xl font-semibold text-[#2b1a12]">Large ration events</h2>
         <p className="text-[#2b1a12]/75 leading-[1.6]">
           If the calculated requirement for a ration event exceeds 5 litres, the amount should be
-          split across multiple Floater~Doser® refills or multiple dosers in separate troughs.
+          split across multiple Floater~Doser<span className="align-super text-[0.6em]">®</span> refills or multiple dosers in separate troughs.
           Always top up with water to the label mark.
         </p>
       </section>

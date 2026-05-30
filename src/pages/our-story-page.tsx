@@ -46,10 +46,10 @@ export function OurStoryPage() {
           </p>
 
           <p>
-            Today, the legacy continues, providing farmers with organically chelated mixtures that
-            can be incorporated into a practical supplementation programme through a variety of
-            methods, including the Australian designed Floater~Doser®.
-          </p>
+  That legacy continues through organically chelated mixtures that can be incorporated
+  into practical supplementation programmes using a variety of methods, including the
+  Australian designed Floater~Doser<span className="align-super text-[0.6em]">®</span>.
+</p>
 
           <p>
             Memories are recalled by a then young great grandson, perched on Sandy’s knee, as he
@@ -77,20 +77,11 @@ export function OurStoryPage() {
 </p>
 
 <p>
-  Today, under the stewardship of Westminster Pastoral Company, Sandy Bryant’s Mixtures®
+  Today, under the stewardship of Westminster Pastoral Company, Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
   continues to reflect that steady evolution. Each formulation carries with it the imprint of
-  field experience — designed to support livestock health within practical supplementation
+  field experience, designed to support livestock health within practical supplementation
   programmes that fit naturally into everyday farm management.
 </p>
-
-
-          <p>
-  Today, under the stewardship of Westminster Pastoral Company, Sandy Bryant’s Mixtures®
-  continues to reflect that steady evolution. Each formulation carries with it the imprint of
-  field experience — designed to support livestock health within practical supplementation
-  programmes that fit naturally into everyday farm management.
-</p>
-
 
           <div className="mt-10 max-w-3xl mx-auto rounded-2xl border border-black/5 bg-white/40 p-8">
   <h2 className="text-2xl font-semibold text-[#2b1a12]">
