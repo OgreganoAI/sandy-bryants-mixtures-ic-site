@@ -83,7 +83,7 @@ or{' '}
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <Link
             to="/products"
-            className="rounded-md bg-primary px-6 py-3 text-primary-foreground font-medium hover:opacity-90 transition"
+            className="rounded-md border border-black/10 bg-white/75 px-6 py-3 font-medium text-[#2b1a12] shadow-sm transition hover:bg-white hover:shadow"
           >
             Choose a formulation
           </Link>

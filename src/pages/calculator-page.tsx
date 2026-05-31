@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AlertCircle } from 'lucide-react'
 import { Link, useLocation } from '@tanstack/react-router'
+import sandyBryantsLogo from '@/assets/brand/sandy-bryants-mixtures-logo.png'
+import nutrienLogo from '@/assets/partners/nutrien-ag-solutions-logo.png'
+import crtLogo from '@/assets/partners/crt-logo.png'
 
 import {
   calculatorProduct,
@@ -35,6 +38,15 @@ function SandyBryantsMixturesName() {
       Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
     </>
   )
+}
+
+const cattleClassLabels: Record<string, string> = {
+  lactating: 'Lactating cows',
+  dry: 'Dry cows and heifers',
+  growing: 'Growing stores and yearlings',
+  bulls: 'Bulls',
+  calves: 'Calves and weaners',
+  other: 'Other or custom',
 }
 
 function getCattleRation(weightKg: number): { mlPerAnimal: number; defaultIntervalWeeks: number } | null {
@@ -76,6 +88,14 @@ export function CalculatorPage() {
 const isSixWeekOnlyAnimal = animalType === 'sheep'
   const herdLabel = isSheep ? 'flock' : 'herd'
   const currentVariant = calculatorProduct.variants.find((variant) => variant.id === selectedVariant)
+  const selectedClassLabel = isSheep
+    ? sheepRationTable.find((item) => item.id === sheepClass)?.label || 'Adult sheep'
+    : cattleClassLabels[cattleClass] || 'Not selected'
+  const printedDate = new Date().toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
   const variantAccentClass =
     selectedVariant === 'sheep-and-cattle-6.5-cu'
       ? 'accent-blue'
@@ -189,7 +209,8 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
   }, [calc.groupRationL, herdLabel])
 
   return (
-    <section className="space-y-6">
+    <>
+    <section className="no-print space-y-6">
       <header className="space-y-2">
         <h1 className="text-3xl font-bold">Livestock Ration Calculator</h1>
         <p className="text-muted-foreground">
@@ -428,7 +449,124 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
             </p>
           </div>
         )}
+
+        <div className="flex justify-end pt-2">
+          <button
+            type="button"
+            className="rounded-md border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-[#2b1a12] shadow-sm transition hover:bg-white/80 hover:shadow"
+            onClick={() => window.print()}
+          >
+            Print ration record
+          </button>
+        </div>
       </div>
     </section>
+    <section className="print-record">
+      <div className="print-watermarks" aria-hidden="true">
+        <img src={sandyBryantsLogo} alt="" className="print-watermark print-watermark-brand" />
+        <img src={nutrienLogo} alt="" className="print-watermark print-watermark-nutrien" />
+        <img src={crtLogo} alt="" className="print-watermark print-watermark-crt" />
+      </div>
+      <div className="space-y-6">
+        <header className="border-b border-black/20 pb-4">
+          <p className="text-sm uppercase tracking-[0.18em] text-[#533626]">Ration Record</p>
+          <h1 className="mt-2 text-3xl font-semibold text-[#2b1a12]">
+            Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> Supplementation Planning
+          </h1>
+          <p className="mt-2 text-sm text-[#2b1a12]/75">Date printed: {printedDate}</p>
+        </header>
+
+        <div className="print-compact-grid grid gap-3 sm:grid-cols-2">
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Product</p>
+            <p className="print-field-value mt-1 font-semibold">
+              Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span>
+            </p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Variant</p>
+            <p className="print-field-value mt-1 font-semibold">{currentVariant?.label || 'Not selected'}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Animal type</p>
+            <p className="print-field-value mt-1 font-semibold">{isSheep ? 'Sheep' : 'Cattle'}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Class</p>
+            <p className="print-field-value mt-1 font-semibold">{selectedClassLabel}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Group name</p>
+            <p className="print-field-value mt-1 font-semibold">{groupName || '____________________'}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Number of animals</p>
+            <p className="print-field-value mt-1 font-semibold">{numberOfAnimals || '1'}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Average liveweight</p>
+            <p className="print-field-value mt-1 font-semibold">{isSheep ? 'Not used for sheep calculations' : `${averageLiveweight || '_____'} kg`}</p>
+          </div>
+          <div className="print-field rounded-md border border-black/20 p-3">
+            <p className="print-field-label text-xs font-semibold uppercase tracking-[0.12em] text-[#533626]">Rationing method</p>
+            <p className="print-field-value mt-1 font-semibold">
+              {method === 'floater' ? (
+                <>
+                  Floater~Doser<span className="align-super text-[0.6em]">®</span>
+                </>
+              ) : (
+                'Feed ration per head'
+              )}
+            </p>
+          </div>
+        </div>
+
+        <div className="print-panel rounded-md border border-black/20 p-4">
+          <h2 className="text-xl font-semibold text-[#2b1a12]">Calculated ration</h2>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <p>Ration per animal: <strong>{calc.rationPerAnimalMl || 0} mL</strong></p>
+            <p>Supplement required per ration event: <strong>{calc.groupRationL.toFixed(2)} L</strong></p>
+          </div>
+          {method === 'floater' && (
+            <p className="mt-3 whitespace-pre-line text-sm text-[#2b1a12]/80">
+              {renderFloaterDoserText(floaterGuidance.text)}
+            </p>
+          )}
+        </div>
+
+        <div className="print-panel rounded-md border border-black/20 p-4">
+          <h2 className="text-xl font-semibold text-[#2b1a12]">Supplementation interval guidance</h2>
+          <p className="mt-2 text-sm text-[#2b1a12]/80">
+            {isSheep
+              ? 'Do not provide serving of product to sheep more than once every 6 (six) weeks.'
+              : 'Typical supplementation interval: 4 to 6 weeks depending on class, seasonal conditions, and management requirements.'}
+          </p>
+        </div>
+
+        <div className="print-record-grid space-y-4">
+          <div className="print-panel rounded-md border border-black/20 p-4">
+            <h2 className="text-lg font-semibold text-[#2b1a12]">Farm record</h2>
+            <div className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+              <p>Paddock/location: ______________________________</p>
+              <p>Date supplement provided: ______________________</p>
+            </div>
+            <div className="print-notes mt-3 text-sm">
+              <p>Notes:</p>
+            </div>
+          </div>
+          <div className="print-panel rounded-md border border-black/20 p-4">
+            <h2 className="text-lg font-semibold text-[#2b1a12]">Follow-up observations</h2>
+            <div className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+              <p>Observation date: ______________________________</p>
+              <p>Follow-up interval: ____________________________</p>
+            </div>
+            <div className="print-notes print-followup mt-3 text-sm">
+              <p>Observations and results:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
   )
 }

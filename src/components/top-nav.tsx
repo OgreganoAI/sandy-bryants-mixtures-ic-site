@@ -25,7 +25,7 @@ export function TopNav() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#efe7d6]/95 backdrop-blur">
+    <header className="no-print sticky top-0 z-50 border-b border-black/10 bg-[#efe7d6]/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-3">
   <img

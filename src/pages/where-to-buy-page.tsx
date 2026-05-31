@@ -79,6 +79,13 @@ useEffect(() => {
       <p className="mt-10 text-base text-center text-[#2b1a12]/70">
         Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> is not available through third-party wholesale or distribution channels.
       </p>
+
+      <img
+        src="/og-sandy-bryants-mixtures.png"
+        alt="Sandy Bryant’s Mixtures product information"
+        className="mx-auto mt-8 w-full max-w-2xl rounded-lg border border-black/10 bg-white shadow-sm"
+        loading="lazy"
+      />
     </main>
   )
 }

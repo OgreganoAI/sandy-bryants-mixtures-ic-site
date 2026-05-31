@@ -38,9 +38,34 @@
     color: inherit;
     text-decoration: none;
   }
+
+  a[class*="rounded"],
+  button[class*="rounded"] {
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      opacity 160ms ease;
+  }
+
+  a[class*="rounded"]:hover,
+  button[class*="rounded"]:hover {
+    transform: translateY(-1px);
+  }
+
+  a[class*="rounded"]:active,
+  button[class*="rounded"]:active {
+    transform: translateY(0);
+  }
 }
 
 @layer utilities {
+  .print-record {
+    display: none;
+  }
+
   .accent-blue {
     --accent-color: var(--sbm-blue);
     --accent-tint: color-mix(in srgb, var(--sbm-blue) 12%, white);
@@ -94,5 +119,185 @@
 
   .label-kicker {
     color: var(--label-color);
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html {
+    overflow-y: visible;
+  }
+
+  body {
+    background: white !important;
+    color: #2b1a12 !important;
+  }
+
+  header:not(.print-record header),
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .print-record {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    font-size: 11px !important;
+    height: calc(297mm - 16mm) !important;
+  }
+
+  .print-record * {
+    box-shadow: none !important;
+  }
+
+  .print-record header {
+    display: block !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .print-record .print-compact-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  .print-record .print-field,
+  .print-record .print-panel {
+    border: 1px solid #b8aa98 !important;
+    border-radius: 4px !important;
+    padding: 6px !important;
+    background: rgba(255, 255, 255, 0.34) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-record .print-field-label {
+    font-size: 8px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .print-record .print-field-value {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  .print-record .print-notes {
+    min-height: 0 !important;
+    height: 100% !important;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 17px,
+      #c8bcae 18px
+    ) !important;
+  }
+
+  .print-record .print-followup {
+    min-height: 0 !important;
+  }
+
+  .print-record h1 {
+    font-size: 20px !important;
+    line-height: 1.15 !important;
+    margin-top: 3px !important;
+  }
+
+  .print-record h2 {
+    font-size: 14px !important;
+  }
+
+  .print-record p,
+  .print-record h1,
+  .print-record h2 {
+    margin-top: 0 !important;
+  }
+
+  .print-record .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 7px !important;
+  }
+
+  .print-record .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 7px !important;
+  }
+
+  .print-record .mt-3 {
+    margin-top: 4px !important;
+  }
+
+  .print-record .mt-2 {
+    margin-top: 3px !important;
+  }
+
+  .print-watermarks {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .print-watermark {
+    position: fixed !important;
+    object-fit: contain !important;
+    opacity: 0.18 !important;
+    filter: grayscale(100%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-watermark-brand {
+    left: 50% !important;
+    top: 48% !important;
+    width: 70% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .print-watermark-nutrien {
+    left: 8mm !important;
+    bottom: 5mm !important;
+    width: 42mm !important;
+  }
+
+  .print-watermark-crt {
+    right: 8mm !important;
+    bottom: 5mm !important;
+    width: 22mm !important;
+  }
+
+  .print-record > div:not(.print-watermarks) {
+    position: relative !important;
+    z-index: 1 !important;
+    display: flex !important;
+    min-height: 100% !important;
+    flex-direction: column !important;
+  }
+
+  .print-record .print-record-grid {
+    display: grid !important;
+    flex: 1 1 auto !important;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 7px !important;
+  }
+
+  .print-record .print-record-grid .print-panel {
+    display: flex !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+  }
+
+  .print-record .print-record-grid .print-notes {
+    flex: 1 1 auto !important;
   }
 }
