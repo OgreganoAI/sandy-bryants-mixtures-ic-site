@@ -6,3 +6,7 @@ dist/
 !.eslintrc.js
 !.prettierrc.js
 labels_source/
+
+# ICP local deployment state
+.dfx/
+.env
