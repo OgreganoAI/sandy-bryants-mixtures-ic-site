@@ -1,0 +1,56 @@
+Project:
+~/projects/SandyBryantsMixtures-ic-site
+
+GitHub repo:
+https://github.com/OgreganoAI/sandy-bryants-mixtures-ic-site.git
+
+Latest pushed commit:
+ecde5e4 Save latest site updates
+
+ICP/dfx identity backup:
+~/dfx-identity-backup
+
+Backed up identities:
+default
+sandy-bryants-site
+testuser
+
+Likely ICP identity:
+sandy-bryants-site
+
+Confirm principal:
+dfx identity use sandy-bryants-site
+dfx identity get-principal
+
+GitHub PAT:
+Classic token named "WSL Git push" for HTTPS Git push.
+
+Still useful to recover from chat history if available:
+- ICP canister IDs:
+- Live site URL:
+- dfx network used:
+- Deploy command:
+- Local dev command:
+- Build command:
+- Hosting notes:
+- Important design/content decisions:
+- Known unfinished tasks:
+- Secret/token locations, not values:
+
+ICP canister:
+Name: sandy_bryants_mixtures
+Network: ic
+Canister ID: yr427-7iaaa-aaaac-bfgnq-cai
+Type: assets
+Source folder: dist
+Build command: npm run build
+dfx output env file: .env
+
+ICP canister:
+Name: sandy_bryants_mixtures
+Network: ic
+Canister ID: yr427-7iaaa-aaaac-bfgnq-cai
+Type: assets
+Source folder: dist
+Build command: npm run build
+dfx output env file: .env
