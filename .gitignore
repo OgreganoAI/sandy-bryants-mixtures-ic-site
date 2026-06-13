@@ -1,5 +1,7 @@
 node_modules/
+node_modules.broken.*/
 dist/
+.npm-cache/
 *.tsbuildinfo
 *.js
 *.d.ts
