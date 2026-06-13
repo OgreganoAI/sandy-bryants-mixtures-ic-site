@@ -130,11 +130,18 @@
 
   html {
     overflow-y: visible;
+    width: 210mm !important;
+    height: 297mm !important;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
   }
 
   body {
     background: white !important;
     color: #2b1a12 !important;
+    width: 210mm !important;
+    min-width: 210mm !important;
+    height: 297mm !important;
   }
 
   header:not(.print-record header),
@@ -151,15 +158,24 @@
   .print-record {
     display: block !important;
     position: relative !important;
-    width: 100% !important;
+    width: calc(210mm - 16mm) !important;
     max-width: none !important;
+    min-width: calc(210mm - 16mm) !important;
     padding: 0 !important;
-    font-size: 11px !important;
+    font-size: 10px !important;
     height: calc(297mm - 16mm) !important;
+    max-height: calc(297mm - 16mm) !important;
+    overflow: hidden !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
   }
 
   .print-record * {
     box-shadow: none !important;
+    max-width: none !important;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
   }
 
   .print-record header {
@@ -185,12 +201,12 @@
   }
 
   .print-record .print-field-label {
-    font-size: 8px !important;
+    font-size: 7px !important;
     letter-spacing: 0.12em !important;
   }
 
   .print-record .print-field-value {
-    font-size: 10px !important;
+    font-size: 9px !important;
     line-height: 1.25 !important;
   }
 
@@ -200,9 +216,10 @@
     background-image: repeating-linear-gradient(
       to bottom,
       transparent 0,
-      transparent 17px,
-      #c8bcae 18px
+      transparent 13px,
+      rgba(43, 26, 18, 0.24) 14px
     ) !important;
+    background-color: transparent !important;
   }
 
   .print-record .print-followup {
@@ -210,13 +227,20 @@
   }
 
   .print-record h1 {
-    font-size: 20px !important;
+    font-size: 17px !important;
     line-height: 1.15 !important;
     margin-top: 3px !important;
   }
 
   .print-record h2 {
-    font-size: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .print-record p,
+  .print-record strong,
+  .print-record span {
+    font-size: inherit !important;
+    line-height: 1.25 !important;
   }
 
   .print-record p,
@@ -226,15 +250,15 @@
   }
 
   .print-record .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 7px !important;
+    margin-top: 5px !important;
   }
 
   .print-record .space-y-4 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 7px !important;
+    margin-top: 5px !important;
   }
 
   .print-record .mt-3 {
-    margin-top: 4px !important;
+    margin-top: 3px !important;
   }
 
   .print-record .mt-2 {
@@ -288,7 +312,7 @@
     display: grid !important;
     flex: 1 1 auto !important;
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important;
-    gap: 7px !important;
+    gap: 5px !important;
   }
 
   .print-record .print-record-grid .print-panel {
