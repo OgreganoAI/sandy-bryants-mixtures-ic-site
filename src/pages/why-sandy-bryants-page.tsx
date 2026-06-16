@@ -171,11 +171,11 @@ export function WhySandyBryantsPage() {
         <div className="rounded-2xl border border-black/10 bg-white/70 p-8 shadow-sm">
         <div className="mb-6 rounded-xl border-l-4 border-[#533626] bg-[#efe7d6]/60 px-5 py-4">
   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#533626]">
-    Progressive formulation development - FulviPhos™ Integration
+    Progressive formulation development - FulviPhos<span className="align-super text-[0.6em]">TM</span> Integration
   </p>
 </div>
           <p className="leading-[1.8] text-[#2b1a12]/80">
-            FulviPhos™ components incorporated within the Hard Country, Travel &
+            FulviPhos<span className="align-super text-[0.6em]">TM</span> components incorporated within the Hard Country, Travel &
             Yard formulation form part of the progressive refinement of the
             Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> range.
           </p>

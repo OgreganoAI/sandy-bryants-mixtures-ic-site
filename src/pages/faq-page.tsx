@@ -4,7 +4,7 @@ import { Link } from '@tanstack/react-router'
 function formatTrademarkText(text: string) {
   return (
     <>
-      {text.split(/(Sandy Bryant’s Mixtures®|Floater~Doser®)/g).map((part, index) => {
+      {text.split(/(Sandy Bryant’s Mixtures®|Floater~Doser®|FulviPhos�)/g).map((part, index) => {
         if (part === 'Sandy Bryant’s Mixtures®') {
           return (
             <span key={index}>
@@ -17,6 +17,14 @@ function formatTrademarkText(text: string) {
           return (
             <span key={index}>
               Floater~Doser<span className="align-super text-[0.6em]">®</span>
+            </span>
+          )
+        }
+
+        if (part === 'FulviPhos�') {
+          return (
+            <span key={index}>
+              FulviPhos<span className="align-super text-[0.6em]">TM</span>
             </span>
           )
         }
@@ -44,9 +52,9 @@ const faqs = [
       'Sheep should only be considered with the Sheep & Cattle 6.5 Cu formulation. Higher copper formulations are intended for cattle-only use.',
   },
   {
-    question: 'What is FulviPhos?',
+    question: 'What is FulviPhos�?',
     answer:
-      'FulviPhos is incorporated in the Hard Country Cattle, Travel & Yard formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
+      'FulviPhos� is incorporated in the Hard Country Cattle, Travel & Yard formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
   },
   {
     question: 'How can Sandy Bryant’s Mixtures® be provided?',
@@ -75,7 +83,7 @@ export function FaqPage() {
     document.title = 'FAQ | Sandy Bryant’s Mixtures®'
 
     const description =
-      'Frequently asked questions about Sandy Bryant’s Mixtures®, livestock mineral supplementation, copper variants, FulviPhos, and Floater~Doser® delivery.'
+      'Frequently asked questions about Sandy Bryant’s Mixtures®, livestock mineral supplementation, copper variants, FulviPhos�, and Floater~Doser® delivery.'
 
     let meta = document.querySelector('meta[name="description"]')
 

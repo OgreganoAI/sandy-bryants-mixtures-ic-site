@@ -130,8 +130,6 @@
 
   html {
     overflow-y: visible;
-    width: 210mm !important;
-    height: 297mm !important;
     -webkit-text-size-adjust: 100% !important;
     text-size-adjust: 100% !important;
   }
@@ -139,9 +137,6 @@
   body {
     background: white !important;
     color: #2b1a12 !important;
-    width: 210mm !important;
-    min-width: 210mm !important;
-    height: 297mm !important;
   }
 
   header:not(.print-record header),
@@ -158,13 +153,13 @@
   .print-record {
     display: block !important;
     position: relative !important;
-    width: calc(210mm - 16mm) !important;
+    width: 100% !important;
     max-width: none !important;
-    min-width: calc(210mm - 16mm) !important;
+    min-width: 0 !important;
     padding: 0 !important;
-    font-size: 10px !important;
-    height: calc(297mm - 16mm) !important;
-    max-height: calc(297mm - 16mm) !important;
+    font-size: 11px !important;
+    height: 268mm !important;
+    max-height: 268mm !important;
     overflow: hidden !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -195,45 +190,49 @@
     border: 1px solid #b8aa98 !important;
     border-radius: 4px !important;
     padding: 6px !important;
-    background: rgba(255, 255, 255, 0.34) !important;
+    background: white !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
   .print-record .print-field-label {
-    font-size: 7px !important;
+    font-size: 8px !important;
     letter-spacing: 0.12em !important;
   }
 
   .print-record .print-field-value {
-    font-size: 9px !important;
+    font-size: 10px !important;
     line-height: 1.25 !important;
   }
 
   .print-record .print-notes {
     min-height: 0 !important;
-    height: 100% !important;
+    height: 52mm !important;
     background-image: repeating-linear-gradient(
       to bottom,
-      transparent 0,
-      transparent 13px,
-      rgba(43, 26, 18, 0.24) 14px
+      #ffffff 0,
+      #ffffff 16px,
+      rgba(43, 26, 18, 0.24) 17px,
+      rgba(43, 26, 18, 0.24) 18px
     ) !important;
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .print-record .print-followup {
     min-height: 0 !important;
+    height: 38mm !important;
   }
 
   .print-record h1 {
-    font-size: 17px !important;
+    font-size: 20px !important;
     line-height: 1.15 !important;
     margin-top: 3px !important;
   }
 
   .print-record h2 {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   .print-record p,
@@ -250,15 +249,15 @@
   }
 
   .print-record .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 5px !important;
+    margin-top: 7px !important;
   }
 
   .print-record .space-y-4 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 5px !important;
+    margin-top: 7px !important;
   }
 
   .print-record .mt-3 {
-    margin-top: 3px !important;
+    margin-top: 4px !important;
   }
 
   .print-record .mt-2 {
@@ -266,14 +265,15 @@
   }
 
   .print-watermarks {
-    position: fixed !important;
+    position: absolute !important;
     inset: 0 !important;
     z-index: 0 !important;
     pointer-events: none !important;
+    overflow: hidden !important;
   }
 
   .print-watermark {
-    position: fixed !important;
+    position: absolute !important;
     object-fit: contain !important;
     opacity: 0.18 !important;
     filter: grayscale(100%) !important;
@@ -304,15 +304,16 @@
     position: relative !important;
     z-index: 1 !important;
     display: flex !important;
-    min-height: 100% !important;
+    height: 100% !important;
     flex-direction: column !important;
   }
 
   .print-record .print-record-grid {
     display: grid !important;
-    flex: 1 1 auto !important;
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important;
-    gap: 5px !important;
+    flex: 0 0 auto !important;
+    grid-template-rows: auto auto !important;
+    gap: 7px !important;
+    font-size: 9px !important;
   }
 
   .print-record .print-record-grid .print-panel {
@@ -321,8 +322,24 @@
     flex-direction: column !important;
   }
 
+  .print-record .print-record-grid h2 {
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+  }
+
+  .print-record .print-record-grid p {
+    font-size: 9px !important;
+    line-height: 1.18 !important;
+  }
+
   .print-record .print-record-grid .print-notes {
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+@media print and (max-width: 700px) {
+  .print-watermarks {
+    display: none !important;
   }
 }
 

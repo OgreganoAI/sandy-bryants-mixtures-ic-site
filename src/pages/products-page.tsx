@@ -76,7 +76,7 @@ iconImage: hardCountryIcon,
       formulationApproach: (
   <>
     Shares the same organically chelated lignin mineral base as the range, with copper adjusted to 9.5. Additionally incorporates{' '}
-    <span className="font-semibold text-[#2b1a12]">FulviPhos</span>, progressively formulated to address phosphorus deficiency concerns in more arid regions of Australia and management challenges including weight loss, stress during transport, and '<span className="italic">Dark Cutter</span>' risk.
+    <span className="font-semibold text-[#2b1a12]">FulviPhos<span className="align-super text-[0.6em]">TM</span></span>, progressively formulated to address phosphorus deficiency concerns in more arid regions of Australia and management challenges including weight loss, stress during transport, and '<span className="italic">Dark Cutter</span>' risk.
   </>
 ),
       deliveryCompatibility: (
@@ -94,7 +94,7 @@ export function ProductsPage() {
   document.title = "Product Range | Sandy Bryant’s Mixtures®"
 
   const description =
-    "Explore Sandy Bryant’s Mixtures® livestock mineral supplement formulations, including Sheep & Cattle 6.5 Cu, Cattle Only 8.5 Cu, and Hard Country Cattle with FulviPhos."
+    "Explore Sandy Bryant’s Mixtures® livestock mineral supplement formulations, including Sheep & Cattle 6.5 Cu, Cattle Only 8.5 Cu, and Hard Country Cattle with FulviPhos™."
 
   let meta = document.querySelector('meta[name="description"]')
 
@@ -148,7 +148,7 @@ export function ProductsPage() {
   {p.labelClass === 'label-maroon' && (
     <>
       {' '}
-      <span className="italic">with FulviPhos</span>
+      <span className="italic">with FulviPhos<span className="align-super text-[0.6em]">TM</span></span>
     </>
   )}
 </h2>
