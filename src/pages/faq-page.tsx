@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'What is FulviPhos™?',
     answer:
-      'FulviPhos™ is incorporated in the Hard Country Cattle, Travel & Yard formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
+      'FulviPhos™ is incorporated in the Hard Country Cattle, Transport & Yard formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
   },
   {
     question: 'How can Sandy Bryantâ€™s MixturesÂ® be provided?',
@@ -146,3 +146,4 @@ export function FaqPage() {
     </main>
   )
 }
+

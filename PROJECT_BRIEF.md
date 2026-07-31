@@ -35,15 +35,15 @@ The public site includes ONLY:
 
 - Sandy Bryant’s Mixtures® – Cattle
 - Sandy Bryant’s Mixtures® – Sheep
-- Sandy Bryant’s Mixtures® – Hard Country Cattle, Travel & Yard – 9.5 Cu
+- Sandy Bryant’s Mixtures® – Hard Country Cattle, Transport & Yard – 9.5 Cu
 
 The correct name must always be:
 
-**Hard Country Cattle, Travel & Yard – 9.5 Cu**
+**Hard Country Cattle, Transport & Yard – 9.5 Cu**
 
 Never shorten or alter the name.
 
-Hard Country Cattle, Travel & Yard – 9.5 Cu:
+Hard Country Cattle, Transport & Yard – 9.5 Cu:
 - Same rationing logic as Mighty-Min 8.5 Cu.
 - Copper composition: 9.5 mg/L Cu.
 - Composition data is informational only unless later required in calculator logic.
@@ -112,7 +112,7 @@ Minimum required pages:
 - Product Range
   - Cattle
   - Sheep
-  - Hard Country Cattle, Travel & Yard – 9.5 Cu
+  - Hard Country Cattle, Transport & Yard – 9.5 Cu
 - Livestock Ration Calculator
 - Where to Buy (NAS/CRT direction)
 - Contact
@@ -134,7 +134,7 @@ The calculator applies ONLY to:
 
 - Sandy Bryant’s Mixtures® – Cattle
 - Sandy Bryant’s Mixtures® – Sheep
-- Sandy Bryant’s Mixtures® – Hard Country Cattle, Travel & Yard – 9.5 Cu
+- Sandy Bryant’s Mixtures® – Hard Country Cattle, Transport & Yard – 9.5 Cu
 
 The calculator will NOT include:
 - Pink Calcium
@@ -157,7 +157,7 @@ An existing calculator has already been created for the UK Mighty-Min site in ca
 The code may be adapted and modified to:
 
 - Align with Sandy Bryant’s Mixtures® naming.
-- Include the Hard Country Cattle, Travel & Yard – 9.5 Cu variant.
+- Include the Hard Country Cattle, Transport & Yard – 9.5 Cu variant.
 - Remove pricing logic.
 - Remove any UK-specific references.
 
@@ -173,7 +173,7 @@ The design should align with:
 - Traditional agricultural credibility.
 - Clean, practical layout.
 
-Hard Country Cattle, Travel & Yard – 9.5 Cu label artwork is pending.
+Hard Country Cattle, Transport & Yard – 9.5 Cu label artwork is pending.
 Use current cattle/sheep label colour themes and ensure expandability.
 
 Do not incorporate Pink Calcium branding.
@@ -216,3 +216,4 @@ Assets available locally:
 - Existing UK calculator code (to be supplied).
 
 All development must reflect this brand, not present it as a Mighty-Min rebrand.
+

@@ -60,12 +60,12 @@ const products = [
     },
   },
   {
-  title: 'Hard Country Cattle, Travel & Yard',
+  title: 'Hard Country Cattle, Transport & Yard',
     variantText: '9.5 copper variant',
     labelClass: 'label-maroon',
 labelImage: hardCountryLabel,
 iconImage: hardCountryIcon,
-    variantId: 'hard-country-cattle-travel-yard-9.5-cu',
+    variantId: 'hard-country-cattle-transport-yard-9.5-cu',
     summary:
       'Elevated copper formulation suited to transport, yarding, and hard-country cattle systems.',
     details: {
@@ -230,3 +230,4 @@ export function ProductsPage() {
     </main>
   )
 }
+

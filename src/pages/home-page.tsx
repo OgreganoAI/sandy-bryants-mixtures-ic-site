@@ -18,7 +18,7 @@ const productCards = [
     labelClass: 'label-green',
      },
   {
-    title: 'Hard Country Cattle, Travel & Yard',
+    title: 'Hard Country Cattle, Transport & Yard',
     text: 'Elevated copper formulation suited to transport, yarding, and hard-country cattle.',
     variantText: '9.5 copper variant',
     labelClass: 'label-maroon',
@@ -238,3 +238,4 @@ or{' '}
     </main>
   )
 }
+

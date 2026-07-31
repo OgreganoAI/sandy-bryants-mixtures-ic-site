@@ -106,7 +106,7 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
   const sheepVariantWarning =
     isSheep &&
     (selectedVariant === 'cattle-only-8.5-cu' ||
-      selectedVariant === 'hard-country-cattle-travel-yard-9.5-cu')
+      selectedVariant === 'hard-country-cattle-transport-yard-9.5-cu')
 
   useEffect(() => {
     const params = new URLSearchParams(location.searchStr)
@@ -214,7 +214,7 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
       <header className="space-y-2">
         <h1 className="text-3xl font-bold">Livestock Ration Calculator</h1>
         <p className="text-muted-foreground">
-          Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> supplementation planning for cattle, sheep, and Hard Country Cattle, Travel & Yard – 9.5 Cu.
+          Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> supplementation planning for cattle, sheep, and Hard Country Cattle, Transport & Yard – 9.5 Cu.
         </p>
       </header>
 
@@ -264,7 +264,7 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
             <p>
               {currentVariant.id === 'sheep-and-cattle-6.5-cu' && 'Suitable for cattle and sheep (suitable for all ruminants). 6.5 mg/L copper.'}
               {currentVariant.id === 'cattle-only-8.5-cu' && 'Suitable for cattle only. 8.5 mg/L copper.'}
-              {currentVariant.id === 'hard-country-cattle-travel-yard-9.5-cu' &&
+              {currentVariant.id === 'hard-country-cattle-transport-yard-9.5-cu' &&
                 'Suitable for cattle only. 9.5 mg/L copper.'}
             </p>
           </div>
@@ -570,3 +570,4 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     </>
   )
 }
+
