@@ -23,7 +23,9 @@ export type SheepRation = {
 export type CalculatorVariant = {
   id: CalculatorVariantId
   label: string
-  copperMgL: 6.5 | 8.5 | 9.5
+  copperGL: 6.5 | 8.5 | 9.5
+  copperMgL: 6500 | 8500 | 9500
+  copperPercent: '0.65%' | '0.85%' | '0.95%'
   cattleOnly: boolean
 }
 
@@ -33,20 +35,26 @@ export const calculatorProduct = {
   variants: [
     {
       id: 'sheep-and-cattle-6.5-cu',
-      label: 'Sheep & Cattle – 6.5 Cu',
-      copperMgL: 6.5,
+      label: 'Sheep & Cattle - 6.5 Cu',
+      copperGL: 6.5,
+      copperMgL: 6500,
+      copperPercent: '0.65%',
       cattleOnly: false,
     },
     {
       id: 'cattle-only-8.5-cu',
-      label: 'Cattle Only – 8.5 Cu',
-      copperMgL: 8.5,
+      label: 'Cattle Only - 8.5 Cu',
+      copperGL: 8.5,
+      copperMgL: 8500,
+      copperPercent: '0.85%',
       cattleOnly: true,
     },
     {
       id: 'hard-country-cattle-transport-yard-9.5-cu',
-      label: 'Hard Country Cattle, Transport & Yard – 9.5 Cu',
-      copperMgL: 9.5,
+      label: 'Hard Country Cattle, Transport & Yard 9.5 Cu with FulviPhos™',
+      copperGL: 9.5,
+      copperMgL: 9500,
+      copperPercent: '0.95%',
       cattleOnly: true,
     },
   ] satisfies CalculatorVariant[],
@@ -70,7 +78,7 @@ export const cattleRationTable: CattleBand[] = [
 ]
 
 export const sheepRationTable: SheepRation[] = [
-   {
+  {
     id: 'lambs-hoggets',
     label: 'Lambs and hoggets',
     mlPerAnimal: 5,
@@ -100,4 +108,3 @@ export const cattleClassWeights: Record<string, number> = {
 }
 
 export const floaterMaxSupplementPerUnitL = 5
-

@@ -140,7 +140,7 @@ export function WhySandyBryantsPage() {
   <div className="rounded-2xl border border-black/10 bg-white/70 p-5 shadow-sm">
     <div className="mb-3 rounded-xl border-l-4 border-[#7b1e2b] bg-[#efe7d6]/60 px-4 py-3">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#7b1e2b]">
-        Hard Country, Transport &amp; Yard – 9.5 Cu
+        Hard Country Cattle, Transport &amp; Yard 9.5 Cu with FulviPhos<span className="align-super text-[0.6em]">TM</span>
       </p>
     </div>
 
@@ -175,8 +175,8 @@ export function WhySandyBryantsPage() {
   </p>
 </div>
           <p className="leading-[1.8] text-[#2b1a12]/80">
-            FulviPhos<span className="align-super text-[0.6em]">TM</span> components incorporated within the Hard Country, Transport &
-            Yard formulation form part of the progressive refinement of the
+            FulviPhos<span className="align-super text-[0.6em]">TM</span> components incorporated within the Hard Country Cattle, Transport &
+            Yard 9.5 Cu formulation form part of the progressive refinement of the
             Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> range.
           </p>
 

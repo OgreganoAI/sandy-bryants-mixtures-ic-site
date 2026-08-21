@@ -45,7 +45,7 @@ Never shorten or alter the name.
 
 Hard Country Cattle, Transport & Yard – 9.5 Cu:
 - Same rationing logic as Mighty-Min 8.5 Cu.
-- Copper composition: 9.5 mg/L Cu.
+- Copper composition: 9.5 g/L Cu (9,500 mg/L; 0.95%).
 - Composition data is informational only unless later required in calculator logic.
 
 ---

@@ -8,19 +8,19 @@ const productCards = [
   {
     title: 'Sheep & Cattle',
     text: 'Balanced copper formulation suitable for cattle and sheep.',
-    variantText: '6.5 copper variant',
+    variantText: '6.5 g/L copper variant',
     labelClass: 'label-blue',
   },
   {
     title: 'Cattle Only',
     text: 'Higher copper formulation designed for cattle-only systems.',
-    variantText: '8.5 copper variant',
+    variantText: '8.5 g/L copper variant',
     labelClass: 'label-green',
      },
   {
-    title: 'Hard Country Cattle, Transport & Yard',
+    title: 'Hard Country Cattle, Transport & Yard 9.5 Cu with FulviPhos™',
     text: 'Elevated copper formulation suited to transport, yarding, and hard-country cattle.',
-    variantText: '9.5 copper variant',
+    variantText: '9.5 g/L copper variant',
     labelClass: 'label-maroon',
      },
 ]

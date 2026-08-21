@@ -44,7 +44,7 @@ const faqs = [
   {
     question: 'Why are there different copper variants?',
     answer:
-      'The range is structured around a primary 6.5 copper formulation, with higher copper variants available for cattle-only systems and more specialised management situations.',
+      'The range is structured around a primary 6.5 g/L copper formulation, with 8.5 g/L and 9.5 g/L copper variants available for cattle-only systems and more specialised management situations.',
   },
   {
     question: 'Which formulation is suitable for sheep?',
@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'What is FulviPhos™?',
     answer:
-      'FulviPhos™ is incorporated in the Hard Country Cattle, Transport & Yard formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
+      'FulviPhos™ is incorporated in the Hard Country Cattle, Transport & Yard 9.5 Cu with FulviPhos™ formulation and was progressively formulated for more demanding environments, including arid regions and management phases involving transport or yarding.',
   },
   {
     question: 'How can Sandy Bryantâ€™s MixturesÂ® be provided?',

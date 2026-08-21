@@ -12,6 +12,7 @@ import {
   floaterMaxSupplementPerUnitL,
   sheepRationTable,
   type AnimalType,
+  type CalculatorVariant,
   type CalculatorVariantId,
 } from '@/config/calculator'
 
@@ -40,6 +41,10 @@ function SandyBryantsMixturesName() {
   )
 }
 
+function formatCopperExpression(variant: Pick<CalculatorVariant, 'copperGL' | 'copperMgL' | 'copperPercent'>) {
+  const mgL = new Intl.NumberFormat('en-AU').format(variant.copperMgL)
+  return `${mgL} mg/L copper.`
+}
 const cattleClassLabels: Record<string, string> = {
   lactating: 'Lactating cows',
   dry: 'Dry cows and heifers',
@@ -184,6 +189,8 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     if (totalL <= 0 || !Number.isFinite(totalL)) {
       return {
         amountL: '0.00',
+        fills: 0,
+        perFillL: '0.00',
         text: 'Enter animal details to view Floater~Doser® guidance.',
       }
     }
@@ -194,12 +201,16 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
     if (totalL <= floaterMaxSupplementPerUnitL) {
       return {
         amountL: totalL.toFixed(2),
+        fills,
+        perFillL: perFillL.toFixed(2),
         text: `This ${herdLabel} requires ${totalL.toFixed(2)} L per ration event. Run this through one Floater~Doser® over 2 to 3 days. Top up with clean water to the marked level so the ${herdLabel} shares intake.`,
       }
     }
 
     return {
       amountL: totalL.toFixed(2),
+      fills,
+      perFillL: perFillL.toFixed(2),
       text:
         `Total supplement required per ration event: ${totalL.toFixed(2)} L.\n` +
         `Split across ${fills} Floater~Doser® fills or units, with ${perFillL.toFixed(2)} L of supplement in each.\n` +
@@ -262,10 +273,9 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
               {currentVariant.label}
             </p>
             <p>
-              {currentVariant.id === 'sheep-and-cattle-6.5-cu' && 'Suitable for cattle and sheep (suitable for all ruminants). 6.5 mg/L copper.'}
-              {currentVariant.id === 'cattle-only-8.5-cu' && 'Suitable for cattle only. 8.5 mg/L copper.'}
-              {currentVariant.id === 'hard-country-cattle-transport-yard-9.5-cu' &&
-                'Suitable for cattle only. 9.5 mg/L copper.'}
+              {currentVariant.cattleOnly
+                ? `Suitable for cattle only. ${formatCopperExpression(currentVariant)}`
+                : `Suitable for cattle and sheep (suitable for all ruminants). ${formatCopperExpression(currentVariant)}`}
             </p>
           </div>
         )}
@@ -427,7 +437,7 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
               <strong className="accent-badge rounded px-2 py-1">{calc.rationPerAnimalMl || 0} mL</strong>
             </div>
             <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
-              <span>Supplement required per ration event</span>
+              <span>Liquid product required per ration event</span>
               <strong className="accent-badge rounded px-2 py-1">{calc.groupRationL.toFixed(2)} L</strong>
             </div>
           </div>
@@ -441,8 +451,16 @@ const isSixWeekOnlyAnimal = animalType === 'sheep'
               <strong className="accent-badge rounded px-2 py-1">{calc.rationPerAnimalMl || 0} mL</strong>
             </div>
             <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
-              <span>Supplement required per ration event</span>
+              <span>Liquid product required per ration event</span>
               <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.amountL} L</strong>
+            </div>
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Floater~Doser<span className="align-super text-[0.6em]">®</span> fills or units required</span>
+              <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.fills}</strong>
+            </div>
+            <div className={`flex items-center justify-between rounded-md px-3 py-2 text-sm ${variantAccentClass} accent-card`}>
+              <span>Liquid product per Floater~Doser<span className="align-super text-[0.6em]">®</span> fill/unit</span>
+              <strong className="accent-badge rounded px-2 py-1">{floaterGuidance.perFillL} L</strong>
             </div>
             <p className="text-sm text-muted-foreground whitespace-pre-line">
               {renderFloaterDoserText(floaterGuidance.text)}

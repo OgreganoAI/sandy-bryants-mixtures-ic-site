@@ -12,7 +12,7 @@ const hardCountryIcon = new URL('../assets/hard-country-cattle-icon.png', import
 const products = [
   {
     title: 'Sheep & Cattle',
-    variantText: '6.5 copper variant',
+    variantText: '6.5 g/L copper variant',
     labelClass: 'label-blue',
     labelImage: sheepCattleLabel,
     iconImage: sheepCattleIcon,
@@ -25,7 +25,7 @@ const products = [
         'General supplementation programmes integrated into routine farm management systems.',
       formulationApproach: (
   <>
-    Sheep & Cattle represents the primary formulation within the range. A 6.5 copper level allows utilisation across all ruminants, particularly sheep. Incorporating lignin-based technology to organically chelate and stabilise the elements, this formulation provides a balanced and stabilised supplement designed to support optimal mineral availability within the animal.
+    Sheep & Cattle represents the primary formulation within the range. A 6.5 g/L copper level (6,500 mg/L, 0.65%) allows utilisation across all ruminants, particularly sheep. Incorporating lignin-based technology to organically chelate and stabilise the elements, this formulation provides a balanced and stabilised supplement designed to support optimal mineral availability within the animal.
   </>
 ),
       deliveryCompatibility: (
@@ -38,7 +38,7 @@ const products = [
   },
   {
     title: 'Cattle Only',
-    variantText: '8.5 copper variant',
+    variantText: '8.5 g/L copper variant',
     labelClass: 'label-green',
     labelImage: cattleOnlyLabel,
     iconImage: cattleOnlyIcon,
@@ -50,7 +50,7 @@ const products = [
       typicalApplication:
         'Used where increased copper concentration is appropriate within regional production systems.',
       formulationApproach:
-        'Shares the same organically chelated lignin base formulation as the full range, with copper adjusted to 8.5 to suit cattle-only management systems.',
+        'Shares the same organically chelated lignin base formulation as the full range, with copper adjusted to 8.5 g/L (8,500 mg/L, 0.85%) to suit cattle-only management systems.',
       deliveryCompatibility: (
         <>
           Suitable for addition to feed, provision through the Floater~Doser
@@ -60,8 +60,8 @@ const products = [
     },
   },
   {
-  title: 'Hard Country Cattle, Transport & Yard',
-    variantText: '9.5 copper variant',
+  title: 'Hard Country Cattle, Transport & Yard 9.5 Cu with FulviPhos™',
+    variantText: '9.5 g/L copper variant',
     labelClass: 'label-maroon',
 labelImage: hardCountryLabel,
 iconImage: hardCountryIcon,
@@ -75,7 +75,7 @@ iconImage: hardCountryIcon,
         'Supplementation during higher stress or transitional management phases.',
       formulationApproach: (
   <>
-    Shares the same organically chelated lignin mineral base as the range, with copper adjusted to 9.5. Additionally incorporates{' '}
+    Shares the same organically chelated lignin mineral base as the range, with copper adjusted to 9.5 g/L (9,500 mg/L, 0.95%). Additionally incorporates{' '}
     <span className="font-semibold text-[#2b1a12]">FulviPhos<span className="align-super text-[0.6em]">TM</span></span>, progressively formulated to address phosphorus deficiency concerns in more arid regions of Australia and management challenges including weight loss, stress during transport, and '<span className="italic">Dark Cutter</span>' risk.
   </>
 ),
@@ -145,12 +145,6 @@ export function ProductsPage() {
 
               <h2 className="text-xl font-semibold text-[#2b1a12]">
   {p.title}
-  {p.labelClass === 'label-maroon' && (
-    <>
-      {' '}
-      <span className="italic">with FulviPhos<span className="align-super text-[0.6em]">TM</span></span>
-    </>
-  )}
 </h2>
               <p className="max-w-[320px] text-[#2b1a12]/75">{p.summary}</p>
               <a
