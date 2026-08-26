@@ -74,9 +74,6 @@ export function HorseProductPage() {
       <section className="grid items-center gap-10 overflow-hidden rounded-3xl border border-[#6e2d7f]/20 bg-gradient-to-br from-[#f4edf5] via-white to-[#efe7d6] p-6 shadow-sm sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)]">
         <div>
           <div className="flex flex-wrap gap-2">
-            <span className="inline-flex rounded-full bg-[#2b1a12] px-3 py-1 text-sm font-semibold text-white">
-              Draft for owner review
-            </span>
             <span className="inline-flex rounded-full border border-[#6e2d7f]/20 bg-[#6e2d7f]/10 px-3 py-1 text-sm font-semibold text-[#5d256b]">
               Distinct equine formulation
             </span>
@@ -121,9 +118,6 @@ export function HorseProductPage() {
               <span className="ml-2 border-l border-black/25 pl-2">Micro Fine Liquid Kelp</span>
             </span>
           </div>
-          <figcaption className="mt-2 text-center text-sm text-[#2b1a12]/60">
-            Supplied 1 litre label artwork shown for draft review.
-          </figcaption>
         </figure>
       </section>
 
@@ -155,7 +149,7 @@ export function HorseProductPage() {
           <article className="rounded-2xl border border-black/10 bg-white/70 p-6">
             <PackageCheck className="h-7 w-7 text-[#5d256b]" aria-hidden="true" />
             <h3 className="mt-4 text-xl font-semibold text-[#2b1a12]">Pack sizes</h3>
-            <div className="mt-3 flex flex-wrap gap-2" aria-label="Proposed Horse pack sizes">
+            <div className="mt-3 flex flex-wrap gap-2" aria-label="Horse pack sizes">
               {packSizes.map((size) => (
                 <span
                   key={size}
@@ -165,9 +159,6 @@ export function HorseProductPage() {
                 </span>
               ))}
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-[#2b1a12]/60">
-              Pack range sourced from current operational material; store availability remains to be confirmed.
-            </p>
           </article>
 
           <article className="rounded-2xl border border-black/10 bg-white/70 p-6">
