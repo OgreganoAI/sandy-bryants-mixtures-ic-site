@@ -4,10 +4,10 @@ import { useEffect } from 'react'
 
 export function ContactPage() {
   useEffect(() => {
-  document.title = 'Contact | Sandy Bryant’s Mixtures®'
+  document.title = 'Store Enquiries | Sandy Bryant’s Mixtures®'
 
   const description =
-    'Contact Sandy Bryant’s Mixtures® through your local Nutrien Ag Solutions® branch or CRT store for livestock mineral supplementation enquiries.'
+    'Direct product availability, ordering and advice enquiries to your local Nutrien Ag Solutions® branch or CRT store.'
 
   let meta = document.querySelector('meta[name="description"]')
 
@@ -23,7 +23,7 @@ export function ContactPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-10">
       <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12] text-center">
-        Contact
+        Store enquiries
       </h1>
 
       <div className="mt-10 grid gap-6 text-lg leading-relaxed text-[#2b1a12]/80 md:grid-cols-2">
@@ -81,13 +81,14 @@ export function ContactPage() {
           </p>
         </section>
 
-        {/* General enquiries column */}
+        {/* Product enquiries column */}
         <section className="rounded-xl border border-black/10 bg-white/60 p-6">
-          <h2 className="text-2xl font-semibold text-[#2b1a12]">General enquiries</h2>
+          <h2 className="text-2xl font-semibold text-[#2b1a12]">Product enquiries</h2>
 
           <p className="mt-3 text-base text-[#2b1a12]/75">
-            If you have a general enquiry about Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> (not related to store ordering), you can
-            contact us via your local store team, who will direct the enquiry appropriately.
+            All enquiries about Sandy Bryant’s Mixtures<span className="align-super text-[0.6em]">®</span> are handled
+            through your local Nutrien Ag Solutions® branch or CRT store. The store team will assist or direct your
+            enquiry appropriately.
           </p>
 
           <div className="mt-5 rounded-lg border border-black/10 bg-white p-4">

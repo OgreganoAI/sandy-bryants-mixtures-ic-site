@@ -8,6 +8,7 @@ import { SiteLayout } from '@/components/site-layout'
 import { CalculatorPage } from '@/pages/calculator-page'
 import { ContactPage } from '@/pages/contact-page'
 import { HomePage } from '@/pages/home-page'
+import { HorseProductPage } from '@/pages/horse-product-page'
 import { OurStoryPage } from '@/pages/our-story-page'
 import { ProductsPage } from '@/pages/products-page'
 import { WhereToBuyPage } from '@/pages/where-to-buy-page'
@@ -49,6 +50,12 @@ const productsRoute = createRoute({
   component: ProductsPage,
 })
 
+const horseProductRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/horse',
+  component: HorseProductPage,
+})
+
 const floaterDoserRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/floater-doser',
@@ -77,6 +84,7 @@ const routeTree = rootRoute.addChildren([
   homeRoute,
   ourStoryRoute,
   productsRoute,
+  horseProductRoute,
   calculatorRoute,
   whereToBuyRoute,
   floaterDoserRoute,

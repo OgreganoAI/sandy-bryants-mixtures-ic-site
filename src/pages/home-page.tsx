@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import sandyBryantsLogo from '@/assets/brand/sandy-bryants-mixtures-logo.png'
 import nutrienLogo from '@/assets/partners/nutrien-ag-solutions-logo.png'
 import crtLogo from '@/assets/partners/crt-logo.png'
+import horseLabel from '@/assets/labels/horse-label.png'
 import { useEffect } from 'react'
 
 const productCards = [
@@ -31,7 +32,7 @@ export function HomePage() {
     "Sandy Bryant’s Mixtures® | Livestock Mineral Supplementation"
 
   const description =
-    "Australian livestock mineral supplementation for cattle and sheep, including practical water-based delivery through the Floater~Doser® system."
+    "Australian liquid mineral supplementation for cattle, sheep and horses, including practical feed and water application options."
 
   let meta = document.querySelector('meta[name="description"]')
 
@@ -85,7 +86,13 @@ or{' '}
             to="/products"
             className="rounded-md border border-black/10 bg-white/75 px-6 py-3 font-medium text-[#2b1a12] shadow-sm transition hover:bg-white hover:shadow"
           >
-            Choose a formulation
+            Explore livestock formulations
+          </Link>
+          <Link
+            to="/horse"
+            className="rounded-md border border-[#6e2d7f]/20 bg-[#6e2d7f]/10 px-6 py-3 font-medium text-[#5d256b] shadow-sm transition hover:bg-[#6e2d7f]/15 hover:shadow"
+          >
+            Explore Horse
           </Link>
           <Link
             to="/calculator"
@@ -146,6 +153,33 @@ or{' '}
 </div>
 
 </section>
+
+      {/* Distinct Horse product */}
+      <section className="grid items-center gap-8 overflow-hidden rounded-2xl border border-[#6e2d7f]/20 bg-gradient-to-r from-[#f4edf5] to-white p-6 sm:p-8 md:grid-cols-[minmax(260px,0.9fr)_minmax(0,1fr)_auto]">
+        <img
+          src={horseLabel}
+          alt="Sandy Bryant's Horse 1 litre label"
+          className="mx-auto block h-auto w-full max-w-[360px] object-contain"
+          loading="lazy"
+        />
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#5d256b]">
+            Distinct equine formulation
+          </p>
+          <h2 className="mt-2 text-3xl font-semibold text-[#2b1a12]">Sandy Bryant&apos;s Horse</h2>
+          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-[#2b1a12]/75">
+            A liquid nutritional mineral supplement developed specifically for horses, with organically stabilised
+            trace minerals, Vitamin B12, Micro Fine Liquid Kelp and no molasses.
+          </p>
+          <p className="mt-2 text-sm font-semibold text-[#2b1a12]/60">Pack sizes: 1.0 L, 2.5 L, 5 L, 10 L and 20 L</p>
+        </div>
+        <Link
+          to="/horse"
+          className="inline-flex justify-center rounded-xl bg-[#5d256b] px-5 py-3 font-semibold text-white shadow-sm hover:bg-[#4f205c]"
+        >
+          View Horse product
+        </Link>
+      </section>
 
       {/* Next steps */}
       <section className="rounded-2xl border bg-white/70 p-6 sm:p-8">

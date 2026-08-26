@@ -7,6 +7,7 @@ const hardCountryLabel = new URL('../assets/labels/label-hard-country-cattle-mar
 const sheepCattleIcon = new URL('../assets/sheep-cattle-icon.png', import.meta.url).href
 const cattleOnlyIcon = new URL('../assets/cattle-only-icon.png', import.meta.url).href
 const hardCountryIcon = new URL('../assets/hard-country-cattle-icon.png', import.meta.url).href
+const horseLabel = new URL('../assets/labels/horse-label.png', import.meta.url).href
 
 
 const products = [
@@ -91,10 +92,10 @@ iconImage: hardCountryIcon,
 
 export function ProductsPage() {
   useEffect(() => {
-  document.title = "Product Range | Sandy Bryant’s Mixtures®"
+  document.title = "Livestock Products | Sandy Bryant’s Mixtures®"
 
   const description =
-    "Explore Sandy Bryant’s Mixtures® livestock mineral supplement formulations, including Sheep & Cattle 6.5 Cu, Cattle Only 8.5 Cu, and Hard Country Cattle with FulviPhos™."
+    "Explore Sandy Bryant’s Mixtures® livestock formulations and the distinct Sandy Bryant's Horse equine mineral supplement."
 
   let meta = document.querySelector('meta[name="description"]')
 
@@ -110,7 +111,7 @@ export function ProductsPage() {
     <main className="mx-auto max-w-5xl px-6 py-14 space-y-14">
       {/* Title */}
       <section className="text-center space-y-4">
-        <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12]">Product Range</h1>
+        <h1 className="text-5xl font-semibold tracking-tight text-[#2b1a12]">Livestock Product Range</h1>
         <p className="text-lg text-[#2b1a12]/75 max-w-2xl mx-auto">
           A practical range built from farming heritage, incorporating organically chelated elements within
           formulations designed for Australian production systems.
@@ -188,6 +189,57 @@ export function ProductsPage() {
             </details>
           </article>
         ))}
+      </section>
+
+      {/* Distinct equine product */}
+      <section
+        aria-labelledby="horse-product-heading"
+        className="grid items-center gap-8 rounded-2xl border border-[#6e2d7f]/20 bg-gradient-to-br from-[#f4edf5] to-white p-6 sm:p-8 md:grid-cols-[minmax(300px,0.9fr)_minmax(0,1.1fr)]"
+      >
+        <div className="mx-auto w-full max-w-[440px]">
+          <img
+            src={horseLabel}
+            alt="Sandy Bryant's Horse 1 litre label"
+            className="block h-auto w-full object-contain"
+            loading="lazy"
+          />
+          <div className="mt-2 flex justify-center">
+            <span className="inline-flex items-center rounded border border-[#b9a900] bg-[#f4e500] px-2.5 py-1 text-[0.68rem] font-bold text-[#2b1a12]">
+              <span className="uppercase tracking-[0.08em]">Plus</span>
+              <span className="ml-1.5 border-l border-black/25 pl-1.5">Micro Fine Liquid Kelp</span>
+            </span>
+          </div>
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#5d256b]">
+            Distinct equine formulation
+          </p>
+          <h2 id="horse-product-heading" className="mt-2 text-3xl font-semibold text-[#2b1a12]">
+            Sandy Bryant&apos;s Horse
+          </h2>
+          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-[#2b1a12]/75">
+            A concentrated liquid mineral supplement developed specifically for horses, combining organically
+            stabilised trace minerals with Vitamin B12, Micro Fine Liquid Kelp and no molasses. Measure 20 mL and
+            provide it once each week with feed.
+          </p>
+          <p className="mt-3 text-sm font-semibold text-[#2b1a12]/60">
+            Pack sizes: 1.0 L, 2.5 L, 5 L, 10 L and 20 L
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              to="/horse"
+              className="inline-flex rounded-xl bg-[#5d256b] px-5 py-3 font-semibold text-white shadow-sm hover:bg-[#4f205c]"
+            >
+              Explore the Horse product
+            </Link>
+            <Link
+              to="/where-to-buy"
+              className="inline-flex rounded-xl border border-black/10 bg-white px-5 py-3 font-semibold text-[#2b1a12] shadow-sm hover:shadow"
+            >
+              Find a store
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Formulation Integrity (site-wide note) */}

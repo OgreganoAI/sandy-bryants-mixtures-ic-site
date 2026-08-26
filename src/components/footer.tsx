@@ -14,7 +14,7 @@ export function Footer() {
 </p>
 
             <p className="text-xs text-[#2b1a12]/60">
-              Practical livestock mineral supplementation
+              Practical livestock and equine mineral supplementation
             </p>
           </div>
 

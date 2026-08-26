@@ -16,15 +16,31 @@ export function TopNav() {
     return label
   }
 
-  const linkClass = (priority: (typeof navLinks)[number]['priority'] | undefined) => {
+  const linkClass = (item: (typeof navLinks)[number]) => {
     const base =
       'flex min-h-9 items-center justify-center rounded-full px-2 py-1.5 text-center text-[0.95rem] leading-tight transition sm:min-h-0 sm:px-3 sm:py-1.5 sm:text-left sm:text-sm'
 
-    if (priority === 'primary') {
+    if (item.to === '/products') {
+      return `${base} bg-[#2f7d46] font-semibold text-white shadow-sm hover:bg-[#276b3b]`
+    }
+
+    if (item.to === '/horse') {
+      return `${base} bg-[#5d256b] font-semibold text-white shadow-sm hover:bg-[#4f205c]`
+    }
+
+    if (item.priority === 'primary') {
       return `${base} font-semibold text-[#2b1a12] hover:bg-white/60`
     }
 
     return `${base} text-[#2b1a12]/70 hover:bg-white/50 hover:text-[#2b1a12]`
+  }
+
+  const activeClass = (to: (typeof navLinks)[number]['to']) => {
+    if (to === '/products' || to === '/horse') {
+      return 'ring-2 ring-white ring-offset-2 ring-offset-[#efe7d6]'
+    }
+
+    return 'bg-white/70 text-[#2b1a12] shadow-sm'
   }
 
   return (
@@ -46,9 +62,9 @@ export function TopNav() {
             <li key={item.to}>
               <Link
                 to={item.to}
-                className={linkClass(item.priority)}
+                className={linkClass(item)}
                 activeProps={{
-                  className: 'bg-white/70 text-[#2b1a12] shadow-sm',
+                  className: activeClass(item.to),
                 }}
               >
                 {renderNavLabel(item.label)}

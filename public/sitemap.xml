@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN/</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/products</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/products</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/calculator</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/horse</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/floater-doser</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/calculator</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/our-story</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/floater-doser</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/where-to-buy</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/why-sandy-bryants</loc>
   </url>
-
   <url>
-    <loc>https://YOUR-DOMAIN/contact</loc>
+    <loc>https://www.sandybryantsmixtures.com.au/our-story</loc>
   </url>
-
   <url>
-  <loc>https://YOUR-DOMAIN/why-sandy-bryants</loc>
-</url>
-
+    <loc>https://www.sandybryantsmixtures.com.au/where-to-buy</loc>
+  </url>
+  <url>
+    <loc>https://www.sandybryantsmixtures.com.au/faq</loc>
+  </url>
+  <url>
+    <loc>https://www.sandybryantsmixtures.com.au/contact</loc>
+  </url>
 </urlset>
